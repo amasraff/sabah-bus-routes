@@ -17,7 +17,7 @@ They're generally a minimum of MYR2.00 upon boarding and it will increase on far
 Generally they don't have any departure schedule, some of the busses may take longer while some take shorter time to depart. It will be stated on each destination's note/condition.
 
 ## Bus Transit Routes?
-They're divided into [NORTH](North - BLUE.html) WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
+They're divided into [NORTH](North_BLUE.html) WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
 
 ## Contributing
 You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet.
