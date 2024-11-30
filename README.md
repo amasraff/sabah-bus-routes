@@ -24,3 +24,6 @@ You're free to contribute to this project by sending a pull request. As of now t
 
 ## Limitation
 This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will be marked [*] to indicate that the route are not confirmed yet.
+
+# License
+This is under personal license
