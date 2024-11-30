@@ -8,16 +8,19 @@ There are no known routes where the bus driver will take except by asking them d
 To create public bus transit map chart to assist anyone who are planning to commute via these bus transits. By just using google map links.
 
 ## Bus Transit Routes?
-They're divided into [NORTH](North_BLUE.html) WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
+They're divided into NORTH WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
 
 ## Contributing
-You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet.
+You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet. Do refer to the contributing.md file
 
 ## Limitation
-This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will be marked [*] to indicate that the route are not confirmed yet.
+This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will undef/incomplete to indicate that the route are not confirmed yet. I wanted to make localisation simple without data redundancy especially on the google map link part for easier data maintenance and sanitization, but I'm very bad with json + javascript. If you're keen on changing it to make it better and efficient, feel free to do so
 
 # License
 This is under personal license
+
+# Privacy Policy
+I prohibit the use of any data found in this repo/site to take advantage, extort, or bring any harm to the well-being of the users as well as the public bus drivers. This small project are meant to help anyone who wanted to commute via public buses.
 
 # FAQ
 
