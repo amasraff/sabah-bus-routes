@@ -36,6 +36,6 @@ Generally they don't have any departure schedule, some of the busses may take lo
 ## Why there are 2 routes?
 Inbound and Outbound will have slight deviation to their routes due to how the roads are laid out
 
-## 'undeff' and 'incomplete'?
-undef means the the data/information are unknown. Set as undef if the data is only obtained once. 
-incomplete means the data gathered for at least multiple times, at least twice, usually the case of their end to end routes.
+## `undef` and `partial`?
+`undef` means the the data/information are unknown. Set as undef if the data is only obtained once. 
+`partial` means the data gathered for at least multiple times, at least twice, usually the case of their end to end routes.
