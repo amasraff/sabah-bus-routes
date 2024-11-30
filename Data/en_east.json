@@ -1,7 +1,7 @@
 {
   "region": "EAST - ORANGE",
   "description": "This covers the area of Penampang",
-  "map": "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d124649.2708287654!2d116.15284037539614!3d6.047298231861911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732932988487!5m2!1sen!2smy",
+  "map": "https://www.google.com/maps/@5.9300097,116.1264156,8512m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
   "buses": [
     {
       "busNumber": "undef",
