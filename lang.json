@@ -1,0 +1,22 @@
+{
+  "languages": {
+    "english": [
+      { "fileName": "Data/en_north.json", "label": "North - BLUE" },
+      { "fileName": "Data/en_west.json", "label": "West - PURPLE" },
+      { "fileName": "Data/en_south.json", "label": "South - RED" },
+      { "fileName": "Data/en_east.json", "label": "East - ORANGE" }
+    ],
+    "malay": [
+      { "fileName": "Data/my_north.json", "label": "North - BLUE" },
+      { "fileName": "Data/my_west.json", "label": "West - PURPLE" },
+      { "fileName": "Data/my_south.json", "label": "South - RED" },
+      { "fileName": "Data/my_east.json", "label": "East - ORANGE" }
+    ],
+    "es": [
+      { "fileName": "Data/ch_north.json", "label": "North - BLUE" },
+      { "fileName": "Data/ch_west.json", "label": "West - PURPLE" },
+      { "fileName": "Data/ch_south.json", "label": "South - RED" },
+      { "fileName": "Data/ch_east.json", "label": "East - ORANGE" }
+    ]
+  }
+}

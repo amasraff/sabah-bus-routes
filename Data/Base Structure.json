@@ -1,0 +1,55 @@
+{
+  "region": "",
+  "description": "",
+  "map": "",
+  "buses": [
+    {
+      "busNumber": "undef",
+      "towards": [
+        {
+          "destination": "",
+          "route": "",
+		  "notes":"undef"
+        },
+        {
+          "destination": "",
+          "route": "",
+		  "notes":"undef"
+        }
+      ],
+      "remark": ""
+    },
+    {
+      "busNumber": "undef",
+      "towards": [
+        {
+          "destination": "",
+          "route": "",
+		  "notes":"undef"
+        },
+        {
+          "destination": "",
+          "route": "",
+		  "notes":"undef"
+        }
+      ],
+      "remark": ""
+    },
+	{
+      "busNumber": "undef",
+      "towards": [
+        {
+          "destination": "Telipok",
+          "route": "",
+		  "notes":"undef"
+        },
+        {
+          "destination": "",
+          "route": "",
+		  "notes":"undef"
+        }
+      ],
+      "remark": ""
+    }
+  ]
+}
