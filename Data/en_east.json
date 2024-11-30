@@ -1,19 +1,19 @@
 {
   "region": "EAST - ORANGE",
   "description": "This covers the area of Penampang",
-  "map": "https://www.google.com/maps/@5.9300097,116.1264156,8512m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
+  "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d31169.054413922822!2d116.13372338163781!3d5.9292309082767085!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961104633!5m2!1sen!2smy",
   "buses": [
     {
       "busNumber": "undef",
       "towards": [
         {
           "destination": "Penampang",
-          "route": "https://www.google.com/maps/dir/5.976611,116.0690211/5.911353,116.101023/@5.9737127,116.0685853,1194m/data=!3m1!1e3!4m9!4m8!1m5!3m4!1m2!1d116.0733355!2d5.9692706!3s0x323b69bdadaa6e0b:0x493d1a3046a94c80!1m0!3e0?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
+          "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
 		  "notes":"incomplete"
         },
         {
           "destination": "Kota Kinabalu",
-          "route": "https://www.google.com/maps/dir/5.9109908,116.1008753/5.976611,116.0690211/@5.912195,116.0811295,2531m/data=!3m1!1e3!4m3!4m2!3e0!5i1?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D",
+          "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
 		  "notes":"incomplete"
         }
       ],

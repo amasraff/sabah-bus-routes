@@ -1,4 +1,4 @@
-# [Kota Kinabalu Bus Route Chart](https://amasraff.github.io/kk-bus-routes/)
+# Kota Kinabalu Bus Route Chart
 Currently there are no known public bus transit route created or made to public.
 
 ## Current problem
