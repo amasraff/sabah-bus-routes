@@ -2,7 +2,7 @@
 Currently there are no known public bus transit route created or made to public.
 
 ## Current problem
-There are no known routes where the bus driver will take except by asking them directly or others who often commute by them. Even with that, the information are still quite vague. As of now, Google Maps doesn't support "transit" feature in this city, hence leaving the current public transit in the shadows.
+There are no known routes where the bus driver will take except by asking them directly or others who often commute by them. Even with that, the information are still quite vague. As of now, Google Maps doesn't support "transit" feature in this city, hence leaving the current public transit in the shadows. There are bus stops being erected, however that doesn't mean there will be any bus that will take the route to there.
 
 ## Aim
 To create public bus transit map chart to assist anyone who are planning to commute via these bus transits. By just using google map links.
@@ -16,5 +16,11 @@ They're generally a minimum of MYR2.00 upon boarding and it will increase on far
 ## Schedule
 Generally they don't have any departure schedule, some of the busses may take longer while some take shorter time to depart. It will be stated on each destination's note/condition.
 
+## Bus Transit Routes?
+They're divided into NORTH WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
+
 ## Contributing
 You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet.
+
+## Limitation
+This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will be marked [*] to indicate that the route are not confirmed yet.
