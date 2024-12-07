@@ -9,12 +9,12 @@
         {
           "destination": "Penampang",
           "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
-		  "notes":"incomplete"
+		  "notes":"partial"
         },
         {
           "destination": "Kota Kinabalu",
           "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
-		  "notes":"incomplete"
+		  "notes":"partial"
         }
       ],
       "remark": ""
