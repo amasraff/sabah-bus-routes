@@ -72,6 +72,23 @@
             "date_check": "11-Nov-24"
         },
         {
+            "busNumber": "13A",
+            "towards": [
+                {
+                    "destination": "Penampang",
+                    "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
+                    "notes": "partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
+                    "notes": "partial"
+                }
+            ],
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
             "busNumber": "13B",
             "towards": [
                 {
