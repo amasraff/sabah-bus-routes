@@ -19,6 +19,23 @@
             ],
             "remark": "",
             "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "N/A",
+            "towards": [
+                {
+                    "destination": "Menggatal",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Sepanggar",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "remark": "",
+            "date_check": "11-Nov-24"
         }
     ]
 }
