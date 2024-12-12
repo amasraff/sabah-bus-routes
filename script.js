@@ -1,28 +1,28 @@
-let selectedLanguage = 'en';
+let selectedcity = 'kota kinabalu';
 
         function initialize() {
-            fetch('lang.json')
+            fetch('city.json')
                 .then(response => response.json())
                 .then(data => {
-                    createLanguageButtons(data.languages);
-                    setLanguage('en'); // Set default language
+                    createcityButtons(data.city);
+                   // setCity('kota kinabalu'); // Set default city
                 })
-                .catch(error => console.error('Error fetching languages:', error));
+                .catch(error => console.error('Error fetching list:', error));
         }
 
-        function createLanguageButtons(languages) {
-            const languageButtons = document.getElementById('languageButtons');
-            languageButtons.innerHTML = '';
-            Object.keys(languages).forEach(lang => {
+        function createcityButtons(city) {
+            const cityButtons = document.getElementById('cityButtons');
+            cityButtons.innerHTML = '';
+            Object.keys(city).forEach(city => {
                 const button = document.createElement('button');
-                button.innerText = lang.toUpperCase();
-                button.onclick = () => setLanguage(lang);
-                languageButtons.appendChild(button);
+                button.innerText = city.toUpperCase();
+                button.onclick = () => setCity(city);
+                cityButtons.appendChild(button);
             });
         }
 
-        function setLanguage(language) {
-            selectedLanguage = language;
+        function setCity(city) {
+            selectedcity = city;
             loadLanguageData();
         }
 
@@ -30,7 +30,7 @@ let selectedLanguage = 'en';
             fetch('lang.json')
                 .then(response => response.json())
                 .then(data => {
-                    createJsonButtons(data.languages[selectedLanguage]);
+                    createJsonButtons(data.city[selectedLanguage]);
                 })
                 .catch(error => console.error('Error fetching language data:', error));
         }
