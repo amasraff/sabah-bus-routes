@@ -1,0 +1,421 @@
+{
+    "region": "KK CENTRE",
+    "description": "List of all buses available that goes in and out of Kota Kinabalu primarily for daily commute.",
+    "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
+    "buses": [
+        {
+            "busNumber": "4A",
+            "towards": [
+                {
+                    "destination": "Inanam",
+                    "route": "https://maps.app.goo.gl/yW1GbqZxnQ3oPJYZA",
+                    "notes": "Complete"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/8BJ1mxtEedF9dP639",
+                    "notes": "Complete"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "5A",
+            "towards": [
+                {
+                    "destination": "Menggatal",
+                    "route": "https://maps.app.goo.gl/u1UgaBQ897rMWvdr9",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/yRGMdakcbVG31pZW6",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "BLUE",            
+            "remark": "wait until full",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "6B",
+            "towards": [
+                {
+                    "destination": "Sepanggar",
+                    "route": "https://maps.app.goo.gl/L1vjrHjVPSDcCMhc6",
+                    "notes": "Complete"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/Fv4ZyMjG3pCuPdsv5",
+                    "notes": "Complete"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "wait until full",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "7C",
+            "towards": [
+                {
+                    "destination": "Telipok Ria",
+                    "route": "https://maps.app.goo.gl/sgUmaagh7qw9Rwn7A",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/X8kxt1j6NiZxNhjq8",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "wait until full no matter what",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "8A",
+            "towards": [
+                {
+                    "destination": "Tuaran",
+                    "route": "https://maps.app.goo.gl/tUNRfsHDV868sZ6p8",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/2AEbEHsQEZAj23Bx6",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "wait until full",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "10A",
+            "towards": [
+                {
+                    "destination": "Tamparuli",
+                    "route": "https://maps.app.goo.gl/Y5taQgjdCQXStZak9",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/FXfHJHXKTiFB2gXV8",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "wait until full",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "11A",
+            "towards": [
+                {
+                    "destination": "Luyang",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "11B",
+            "towards": [
+                {
+                    "destination": "Luyang",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "12A",
+            "towards": [
+                {
+                    "destination": "Beverly Hills",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "12B",
+            "towards": [
+                {
+                    "destination": "Beverly Hills",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "13A",
+            "towards": [
+                {
+                    "destination": "Penampang",
+                    "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
+                    "notes": "partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
+                    "notes": "partial"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "13B",
+            "towards": [
+                {
+                    "destination": "Penampang",
+                    "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
+                    "notes": "partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
+                    "notes": "partial"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "14B",
+            "towards": [
+                {
+                    "destination": "Kepayan Ridge",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "15A",
+            "towards": [
+                {
+                    "destination": "Sembulan",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PURPLE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "16A",
+            "towards": [
+                {
+                    "destination": "Tanjung Aru",
+                    "route": "https://maps.app.goo.gl/wBXVG6Pnd62o4s667",
+                    "notes": "partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PURPLE",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "17A",
+            "towards": [
+                {
+                    "destination": "KG. Ganang",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "18A",
+            "towards": [
+                {
+                    "destination": "Putatan",
+                    "route": "https://maps.app.goo.gl/ZM83iP4AvFAnWXo36",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "18C",
+            "towards": [
+                {
+                    "destination": "Putatan",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "19A",
+            "towards": [
+                {
+                    "destination": "Lok Kawi",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "19C",
+            "towards": [
+                {
+                    "destination": "Lok Kawi",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "20A",
+            "towards": [
+                {
+                    "destination": "Kinarut",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "21A",
+            "towards": [
+                {
+                    "destination": "Papar",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "21B",
+            "towards": [
+                {
+                    "destination": "Papar",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "RED",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        }
+    ]
+}

@@ -2,20 +2,8 @@
     "city": {
         "Kota Kinabalu": [
             {
-                "label": "North - BLUE",
-                "fileName": "Data/kk_north.json"
-            },
-            {
-                "label": "West - PURPLE",
-                "fileName": "Data/kk_west.json"
-            },
-            {
-                "label": "South - RED",
-                "fileName": "Data/kk_south.json"
-            },
-            {
-                "label": "East - ORANGE",
-                "fileName": "Data/kk_east.json"
+                "label": "KK - Centre",
+                "fileName": "Data/kk_centre.json"
             },
             {
                 "label": "Others",

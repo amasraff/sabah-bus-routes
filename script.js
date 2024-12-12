@@ -1,50 +1,50 @@
-let selectedCity = 'kota kinabalu';
+let selectedCity = 'Kota Kinabalu';
 
-        function initialize() {
-            fetch('city.json')
-                .then(response => response.json())
-                .then(data => {
-                    createcityButtons(data.city);
-                    setCity('kota kinabalu'); // Set default city
-                })
-                .catch(error => console.error('Error fetching list:', error));
-        }
+function initialize() {
+	fetch('city.json')
+		.then(response => response.json())
+		.then(data => {
+			createcityButtons(data.city);
+			setCity('Kota Kinabalu'); // Set default city
+		})
+		.catch(error => console.error('Error fetching list:', error));
+}
 
-        function createcityButtons(city) {
-            const cityButtons = document.getElementById('cityButtons');
-            cityButtons.innerHTML = '';
-            Object.keys(city).forEach(city => {
-                const button = document.createElement('button');
-                button.innerText = city.toUpperCase();
-                button.onclick = () => setCity(city);
-                cityButtons.appendChild(button);
-            });
-        }
+function createcityButtons(city) {
+	const cityButtons = document.getElementById('cityButtons');
+	cityButtons.innerHTML = '';
+	Object.keys(city).forEach(city => {
+		const button = document.createElement('button');
+		button.innerText = city.toUpperCase();
+		button.onclick = () => setCity(city);
+		cityButtons.appendChild(button);
+	});
+}
 
-        function setCity(city) {
-            selectedCity = city;
-            loadCityData();
-        }
+function setCity(city) {
+	selectedCity = city;
+	loadCityData();
+}
 
-        function loadCityData() {
-            fetch('city.json')
-                .then(response => response.json())
-                .then(data => {
-                    createRegionButtons(data.city[selectedCity]);
-                })
-                .catch(error => console.error('Error fetching city data:', error));
-        }
+function loadCityData() {
+	fetch('city.json')
+		.then(response => response.json())
+		.then(data => {
+			createRegionButtons(data.city[selectedCity]);
+		})
+		.catch(error => console.error('Error fetching city data:', error));
+}
 
-        function createRegionButtons(languageData) {
-            const regionButtons = document.getElementById('regionButtons');
-            regionButtons.innerHTML = '';
-            languageData.forEach(item => {
-                const button = document.createElement('button');
-                button.innerText = item.label;
-                button.onclick = () => loadData(item.fileName);
-                regionButtons.appendChild(button);
-            });
-        }
+function createRegionButtons(languageData) {
+	const regionButtons = document.getElementById('regionButtons');
+	regionButtons.innerHTML = '';
+	languageData.forEach(item => {
+		const button = document.createElement('button');
+		button.innerText = item.label;
+		button.onclick = () => loadData(item.fileName);
+		regionButtons.appendChild(button);
+	});
+}
 
 function loadData(fileName) {
 	fetch(fileName)
@@ -62,7 +62,7 @@ function loadData(fileName) {
 
 				// Add bus name
 				const categoryTitle = document.createElement('strong');
-				categoryTitle.innerText = `${route.busNumber}: `;
+				categoryTitle.innerText = `[${route.busNumber}] [${route.colour}]: `;
 				routeDiv.appendChild(categoryTitle);
 
 				// Add link to route
@@ -78,21 +78,23 @@ function loadData(fileName) {
 						routeDiv.appendChild(customTextDiv);
 					}
                     });
-
-					// Add remarks section
+					
+						// Add remarks section
                         const remarksSpan = document.createElement('span');
                         remarksSpan.classList.add('remark');
                         remarksSpan.innerText = route.remark;
                         routeDiv.appendChild(remarksSpan);
 						
+						// Date added/checked section
 						const dateSpan = document.createElement('span');
                         dateSpan.classList.add('date-check');
-                        dateSpan.innerText = route.date_check;
+                        dateSpan.innerText = `[${route.date_check}]`;
                         routeDiv.appendChild(dateSpan);
+						
 				content.appendChild(routeDiv);
 			});
 		})
-		.catch(error => console.error('Error fetching data:', error));
+	.catch(error => console.error('Error fetching data:', error));
 }
 // Initialize buttons for the default language
 initialize();
