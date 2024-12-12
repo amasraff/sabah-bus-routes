@@ -25,17 +25,17 @@
             "towards": [
                 {
                     "destination": "Menggatal",
-                    "route": "https://maps.app.goo.gl/L1vjrHjVPSDcCMhc6",
-                    "notes": "Partial"
+                    "route": "https://maps.app.goo.gl/u1UgaBQ897rMWvdr9",
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/Fv4ZyMjG3pCuPdsv5",
-                    "notes": "Partial"
+                    "route": "https://maps.app.goo.gl/yRGMdakcbVG31pZW6",
+                    "notes": "undef"
                 }
             ],
             "remark": "wait until full",
-            "date_check": "11-Nov-24"
+            "date_check": "12 Dec 2024"
         },
         {
             "busNumber": "6B",
@@ -52,58 +52,58 @@
                 }
             ],
             "remark": "wait until full",
-            "date_check": "11-Nov-24"
+            "date_check": "12 Dec 2024"
         },
         {
             "busNumber": "7C",
             "towards": [
                 {
                     "destination": "Telipok Ria",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/sgUmaagh7qw9Rwn7A",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/X8kxt1j6NiZxNhjq8",
                     "notes": "undef"
                 }
             ],
             "remark": "wait until full no matter what",
-            "date_check": "11-Nov-24"
+            "date_check": "12 Dec 2024"
         },
 		{
             "busNumber": "8A",
             "towards": [
                 {
                     "destination": "Tuaran",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/tUNRfsHDV868sZ6p8",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/2AEbEHsQEZAj23Bx6",
                     "notes": "undef"
                 }
             ],
             "remark": "wait until full",
-            "date_check": "11-Nov-24"
+            "date_check": "12 Dec 2024"
         },
 		{
             "busNumber": "10A",
             "towards": [
                 {
                     "destination": "Tamparuli",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/Y5taQgjdCQXStZak9",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/FXfHJHXKTiFB2gXV8",
                     "notes": "undef"
                 }
             ],
             "remark": "wait until full",
-            "date_check": "11-Nov-24"
+            "date_check": "12 Dec 2024"
         }
     ]
 }
