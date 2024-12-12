@@ -2,28 +2,28 @@
     "city": {
         "Kota Kinabalu": [
             {
-                "fileName": "Data/kk_north.json",
-                "label": "North - BLUE"
+                "label": "North - BLUE",
+                "fileName": "Data/kk_north.json"
             },
             {
-                "fileName": "Data/kk_west.json",
-                "label": "West - PURPLE"
+                "label": "West - PURPLE",,
+                "fileName": "Data/kk_west.json"
             },
             {
-                "fileName": "Data/kk_south.json",
-                "label": "South - RED"
+                "label": "South - RED",
+                "fileName": "Data/kk_south.json"
             },
             {
-                "fileName": "Data/kk_east.json",
-                "label": "East - ORANGE"
+                "label": "East - ORANGE",
+                "fileName": "Data/kk_east.json"
             },
             {
-                "fileName": "Data/kk_others.json",
-                "label": "Others"
+                "label": "Others",
+                "fileName": "Data/kk_others.json"
             },
             {
-                "fileName": "Data/intercity.json",
-                "label": "Intercity"
+                "label": "Intercity",
+                "fileName": "Data/intercity.json"
             }
         ]
     }
