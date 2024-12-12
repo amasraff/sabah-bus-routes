@@ -4,23 +4,6 @@
     "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d62341.00709984185!2d116.03114423973173!3d5.903525926417015!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961063467!5m2!1sen!2smy",
     "buses": [
         {
-            "busNumber": "19A",
-            "towards": [
-                {
-                    "destination": "Lok Kawi",
-                    "route": "",
-                    "notes": "undef"
-                },
-                {
-                    "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
-                }
-            ],
-            "remark": "",
-            "date_check": "11-Nov-24"
-        },
-        {
             "busNumber": "17A",
             "towards": [
                 {
@@ -59,6 +42,23 @@
             "towards": [
                 {
                     "destination": "Putatan",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "busNumber": "19A",
+            "towards": [
+                {
+                    "destination": "Lok Kawi",
                     "route": "",
                     "notes": "undef"
                 },
