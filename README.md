@@ -1,4 +1,4 @@
-# [Kota Kinabalu Bus Route Chart](https://amasraff.github.io/kk-bus-routes/)
+# [Sabah Bus Route Chart](https://amasraff.github.io/sabah-bus-routes/)
 Currently there are no known public bus transit route created or made to public.
 
 ## Current problem
@@ -8,7 +8,7 @@ There are no known routes where the bus driver will take except by asking them d
 To create public bus transit map chart to assist anyone who are planning to commute via these bus transits. By just using google map links.
 
 ## Bus Transit Routes?
-They're divided into NORTH WEST SOUTH EAST regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
+They're divided into NORTH WEST SOUTH EAST OTHER INTERCITY regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
 
 ## Contributing
 You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet. Do refer to the contributing.md file

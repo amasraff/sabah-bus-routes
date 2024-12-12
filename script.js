@@ -1,4 +1,4 @@
-let selectedcity = 'kota kinabalu';
+let selectedCity = 'kota kinabalu';
 
         function initialize() {
             fetch('city.json')
@@ -22,27 +22,27 @@ let selectedcity = 'kota kinabalu';
         }
 
         function setCity(city) {
-            selectedcity = city;
-            loadLanguageData();
+            selectedCity = city;
+            loadCityData();
         }
 
-        function loadLanguageData() {
-            fetch('lang.json')
+        function loadCityData() {
+            fetch('city.json')
                 .then(response => response.json())
                 .then(data => {
-                    createJsonButtons(data.city[selectedLanguage]);
+                    createRegionButtons(data.city[selectedCity]);
                 })
-                .catch(error => console.error('Error fetching language data:', error));
+                .catch(error => console.error('Error fetching city data:', error));
         }
 
-        function createJsonButtons(languageData) {
-            const jsonButtons = document.getElementById('jsonButtons');
-            jsonButtons.innerHTML = '';
+        function createRegionButtons(languageData) {
+            const regionButtons = document.getElementById('regionButtons');
+            regionButtons.innerHTML = '';
             languageData.forEach(item => {
                 const button = document.createElement('button');
                 button.innerText = item.label;
                 button.onclick = () => loadData(item.fileName);
-                jsonButtons.appendChild(button);
+                regionButtons.appendChild(button);
             });
         }
 
@@ -84,6 +84,11 @@ function loadData(fileName) {
                         remarksSpan.classList.add('remark');
                         remarksSpan.innerText = route.remark;
                         routeDiv.appendChild(remarksSpan);
+						
+						const dateSpan = document.createElement('span');
+                        dateSpan.classList.add('date-check');
+                        dateSpan.innerText = route.date_check;
+                        routeDiv.appendChild(dateSpan);
 				content.appendChild(routeDiv);
 			});
 		})

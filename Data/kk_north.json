@@ -17,7 +17,8 @@
                     "notes": "Complete"
                 }
             ],
-            "remark": "May take hours to arrive, alternatively take Menggatal bus"
+            "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
+            "date_check": "11-Nov-24"
         },
         {
             "busNumber": "5A",
@@ -33,7 +34,8 @@
                     "notes": "Partial"
                 }
             ],
-            "remark": "wait until full"
+            "remark": "wait until full",
+            "date_check": "11-Nov-24"
         },
         {
             "busNumber": "6B",
@@ -49,7 +51,8 @@
                     "notes": "Complete"
                 }
             ],
-            "remark": "wait until full"
+            "remark": "wait until full",
+            "date_check": "11-Nov-24"
         },
         {
             "busNumber": "7C",
@@ -65,7 +68,8 @@
                     "notes": "undef"
                 }
             ],
-            "remark": "wait until full no matter what"
+            "remark": "wait until full no matter what",
+            "date_check": "11-Nov-24"
         },
 		{
             "busNumber": "8A",
@@ -81,7 +85,8 @@
                     "notes": "undef"
                 }
             ],
-            "remark": "wait until full"
+            "remark": "wait until full",
+            "date_check": "11-Nov-24"
         },
 		{
             "busNumber": "10A",
@@ -97,7 +102,8 @@
                     "notes": "undef"
                 }
             ],
-            "remark": "wait until full"
-        },
+            "remark": "wait until full",
+            "date_check": "11-Nov-24"
+        }
     ]
 }
