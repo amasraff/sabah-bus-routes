@@ -5,7 +5,7 @@ let selectedcity = 'kota kinabalu';
                 .then(response => response.json())
                 .then(data => {
                     createcityButtons(data.city);
-                   // setCity('kota kinabalu'); // Set default city
+                    setCity('kota kinabalu'); // Set default city
                 })
                 .catch(error => console.error('Error fetching list:', error));
         }
