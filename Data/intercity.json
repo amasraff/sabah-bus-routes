@@ -4,6 +4,24 @@
     "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
     "buses": [
         {
+            "busNumber": "Beaufort",
+            "towards": [
+                {
+                    "destination": "Beaufort",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
             "busNumber": "Keningau",
             "towards": [
                 {
@@ -21,7 +39,7 @@
             "remark": "",
             "date_check": "11-Nov-24"
         },
-		{
+        {
             "busNumber": "Kudat",
             "towards": [
                 {
@@ -57,7 +75,7 @@
             "remark": "",
             "date_check": "11-Nov-24"
         },
-		{
+        {
             "busNumber": "Kota Belud",
             "towards": [
                 {
@@ -75,25 +93,7 @@
             "remark": "",
             "date_check": "11-Nov-24"
         },
-		{
-            "busNumber": "Beaufort",
-            "towards": [
-                {
-                    "destination": "Beaufort",
-                    "route": "",
-                    "notes": "undef"
-                },
-                {
-                    "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
-                }
-            ],
-            "colour": "",
-            "remark": "",
-            "date_check": "11-Nov-24"
-        },
-		{
+        {
             "busNumber": "Ranau",
             "towards": [
                 {
@@ -111,7 +111,7 @@
             "remark": "",
             "date_check": "11-Nov-24"
         },
-		{
+        {
             "busNumber": "TUNG MA",
             "towards": [
                 {
