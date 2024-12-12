@@ -9,12 +9,12 @@
                 {
                     "destination": "Luyang",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 }
             ],
             "remark": "",
@@ -26,12 +26,12 @@
                 {
                     "destination": "Luyang",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 }
             ],
             "remark": "",
@@ -43,12 +43,12 @@
                 {
                     "destination": "Beverly Hills",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 }
             ],
             "remark": "",
@@ -60,12 +60,12 @@
                 {
                     "destination": "Beverly Hills",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 }
             ],
             "remark": "",
@@ -111,12 +111,12 @@
                 {
                     "destination": "Kepayan Ridge",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
-                    "notes": "partial"
+                    "notes": "undef"
                 }
             ],
             "remark": "",
