@@ -22,6 +22,24 @@
             "date_check": "11-Nov-24"
         },
         {
+            "busNumber": "4B",
+            "towards": [
+                {
+                    "destination": "Inanam",
+                    "route": "https://maps.app.goo.gl/yW1GbqZxnQ3oPJYZA",
+                    "notes": "Partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/8BJ1mxtEedF9dP639",
+                    "notes": "Partial"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
+            "date_check": "20 Dec 24"
+        },
+        {
             "busNumber": "5A",
             "towards": [
                 {
@@ -77,6 +95,24 @@
         },
         {
             "busNumber": "8A",
+            "towards": [
+                {
+                    "destination": "Tuaran",
+                    "route": "https://maps.app.goo.gl/tUNRfsHDV868sZ6p8",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "https://maps.app.goo.gl/2AEbEHsQEZAj23Bx6",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "BLUE",
+            "remark": "wait until full",
+            "date_check": "12 Dec 2024"
+        },
+        {
+            "busNumber": "8B",
             "towards": [
                 {
                     "destination": "Tuaran",
