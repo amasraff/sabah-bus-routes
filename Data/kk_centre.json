@@ -220,6 +220,42 @@
             "date_check": "11-Nov-24"
         },
         {
+            "busNumber": "12A*",
+            "towards": [
+                {
+                    "destination": "Beverly Hills",
+                    "route": "https://maps.app.goo.gl/LWqvA3v4yhG6mMac9",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
+            "date_check": "8 Jan 25"
+        },
+        {
+            "busNumber": "12B*",
+            "towards": [
+                {
+                    "destination": "Beverly Hills",
+                    "route": "https://maps.app.goo.gl/e1XpNqDjuggfrzoT9",
+                    "notes": "Partial"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "ORANGE",
+            "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
+            "date_check": "8 Jan 25"
+        },
+        {
             "busNumber": "13A",
             "towards": [
                 {
