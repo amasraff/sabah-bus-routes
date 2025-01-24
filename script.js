@@ -52,7 +52,7 @@ function loadData(fileName) {
 		.then(data => {
 			document.getElementById('pageTitle').innerText = data.region;
 			document.getElementById('pageDescription').innerText = data.description;
-			document.getElementById('map').src = data.map;
+			// document.getElementById('map').src = data.map;
 			const content = document.getElementById('content');
 			content.innerHTML = '';
 
