@@ -8,18 +8,18 @@
             "towards": [
                 {
                     "destination": "Inanam",
-                    "route": "https://maps.app.goo.gl/yW1GbqZxnQ3oPJYZA",
+                    "route": "https://maps.app.goo.gl/y6ovyN3ZPAmK6U5EA",
                     "notes": "Complete"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/8BJ1mxtEedF9dP639",
+                    "route": "https://maps.app.goo.gl/2xZr8RRJvWQie57X7",
                     "notes": "Complete"
                 }
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
-            "date_check": "11-Nov-24"
+            "date_check": "24 Jan 25"
         },
         {
             "busNumber": "4B",
