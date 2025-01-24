@@ -19,7 +19,7 @@
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
-            "date_check": "24 Jan 25"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "4B",
@@ -37,14 +37,14 @@
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
-            "date_check": "24 Jan 25"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "5A",
             "towards": [
                 {
                     "destination": "Menggatal",
-                    "route": "https://maps.app.goo.gl/u1UgaBQ897rMWvdr9",
+                    "route": "https://maps.app.goo.gl/kxVf4TA5c4Je3PM18",
                     "notes": "undef"
                 },
                 {
@@ -55,7 +55,7 @@
             ],
             "colour": "BLUE",            
             "remark": "wait until full",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "6B",
@@ -67,85 +67,85 @@
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/Fv4ZyMjG3pCuPdsv5",
+                    "route": "https://maps.app.goo.gl/QwSdSGn576yt4pna7",
                     "notes": "Complete"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "7C",
             "towards": [
                 {
                     "destination": "Telipok Ria",
-                    "route": "https://maps.app.goo.gl/sgUmaagh7qw9Rwn7A",
+                    "route": "https://maps.app.goo.gl/29NqnvgtQysixGV99",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/X8kxt1j6NiZxNhjq8",
+                    "route": "https://maps.app.goo.gl/xZjziEG7qrFP7eKG8",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full no matter what",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "8A",
             "towards": [
                 {
                     "destination": "Tuaran",
-                    "route": "https://maps.app.goo.gl/tUNRfsHDV868sZ6p8",
+                    "route": "https://maps.app.goo.gl/EP1RtseTpAMkiqsw7",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/2AEbEHsQEZAj23Bx6",
+                    "route": "https://maps.app.goo.gl/MoWYBUYPzmGSTG1UA",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "8B",
             "towards": [
                 {
                     "destination": "Tuaran",
-                    "route": "https://maps.app.goo.gl/tUNRfsHDV868sZ6p8",
+                    "route": "https://maps.app.goo.gl/EP1RtseTpAMkiqsw7",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/2AEbEHsQEZAj23Bx6",
+                    "route": "https://maps.app.goo.gl/MoWYBUYPzmGSTG1UA",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "10A",
             "towards": [
                 {
                     "destination": "Tamparuli",
-                    "route": "https://maps.app.goo.gl/Y5taQgjdCQXStZak9",
+                    "route": "https://maps.app.goo.gl/zP6HQSFQMkCf4sVf6",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "https://maps.app.goo.gl/FXfHJHXKTiFB2gXV8",
+                    "route": "https://maps.app.goo.gl/2BcNWVipFc6JkoJv6",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "12 Dec 2024"
+            "date_check": "24 Jan 2025"
         },
         {
             "busNumber": "11A",
@@ -224,7 +224,7 @@
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/LWqvA3v4yhG6mMac9",
+                    "route": "https://maps.app.goo.gl/qpWTXYqnPLTqESUw5",
                     "notes": "undef"
                 },
                 {
@@ -235,14 +235,14 @@
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "8 Jan 25"
+            "date_check": "23 Jan 2025"
         },
         {
             "busNumber": "12B*",
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/e1XpNqDjuggfrzoT9",
+                    "route": "https://maps.app.goo.gl/yczFvryEbBNhBoTN7",
                     "notes": "Partial"
                 },
                 {
@@ -253,7 +253,7 @@
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "8 Jan 25"
+            "date_check": "23 Jan 2025"
         },
         {
             "busNumber": "13A",
