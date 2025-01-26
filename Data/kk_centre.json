@@ -188,7 +188,7 @@
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/KES9SxGRkQahJUHF9",
                     "notes": "undef"
                 },
                 {
@@ -199,14 +199,14 @@
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "26 Jan 2025"
         },
         {
             "busNumber": "12B",
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "",
+                    "route": "https://maps.app.goo.gl/KES9SxGRkQahJUHF9",
                     "notes": "undef"
                 },
                 {
@@ -217,7 +217,7 @@
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "26 Jan 2025"
         },
         {
             "busNumber": "12A*",
