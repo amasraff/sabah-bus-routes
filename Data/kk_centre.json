@@ -188,72 +188,72 @@
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/KES9SxGRkQahJUHF9",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
+                    "notes": "Partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/RAPTrJETm1PF7cQP9",
+                    "notes": "Partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "26 Jan 2025"
+            "date_check": "27 Jan 2025"
         },
         {
             "busNumber": "12B",
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/KES9SxGRkQahJUHF9",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
+                    "notes": "Partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/RAPTrJETm1PF7cQP9",
+                    "notes": "Partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "26 Jan 2025"
+            "date_check": "27 Jan 2025"
         },
         {
             "busNumber": "12A*",
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/qpWTXYqnPLTqESUw5",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
+                    "notes": "Partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/RAPTrJETm1PF7cQP9",
+                    "notes": "Partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "23 Jan 2025"
+            "date_check": "27 Jan 2025"
         },
         {
             "busNumber": "12B*",
             "towards": [
                 {
                     "destination": "Beverly Hills",
-                    "route": "https://maps.app.goo.gl/yczFvryEbBNhBoTN7",
+                    "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
                     "notes": "Partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
-                    "route": "",
-                    "notes": "undef"
+                    "route": "https://maps.app.goo.gl/RAPTrJETm1PF7cQP9",
+                    "notes": "Partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "23 Jan 2025"
+            "date_check": "27 Jan 2025"
         },
         {
             "busNumber": "13A",
