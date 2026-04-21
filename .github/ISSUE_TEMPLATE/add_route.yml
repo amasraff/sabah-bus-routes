@@ -12,6 +12,7 @@ body:
         - kk_centre
         - kk_others
         - intercity
+        - Add New File
     validations:
       required: true
 
@@ -19,10 +20,8 @@ body:
     id: bus_number
     attributes:
       label: Bus Number
-      description: The number painted on the bus body e.g. 6A, 16A
+      description: The number painted on the bus body e.g. 6A, 16A. Leave blank if unknown or not applicable.
       placeholder: "6A"
-    validations:
-      required: true
 
   - type: dropdown
     id: colour
@@ -30,6 +29,7 @@ body:
       label: Colour
       description: The colour of the bus
       options:
+        - NONE
         - BLUE
         - ORANGE
         - PURPLE
@@ -39,28 +39,27 @@ body:
 
   - type: markdown
     attributes:
-      value: "## Outbound (away from KK)"
+      value: "## Destination 1"
 
   - type: input
-    id: outbound_destination
+    id: destination_1
     attributes:
-      label: Outbound Destination
-      description: The end destination away from Kota Kinabalu
-      placeholder: "Sepanggar"
+      label: Destination 1
+      description: First destination of this route
     validations:
       required: true
 
   - type: input
-    id: outbound_route
+    id: route_1
     attributes:
-      label: Outbound Route
-      description: Google Maps link for the outbound route
+      label: Route 1
+      description: Google Maps link for Destination 1
       placeholder: "https://maps.app.goo.gl/..."
 
   - type: dropdown
-    id: outbound_notes
+    id: notes_1
     attributes:
-      label: Outbound Notes
+      label: Notes 1
       description: How reliable is this route information?
       options:
         - undef
@@ -71,28 +70,27 @@ body:
 
   - type: markdown
     attributes:
-      value: "## Inbound (towards KK)"
+      value: "## Destination 2"
 
   - type: input
-    id: inbound_destination
+    id: destination_2
     attributes:
-      label: Inbound Destination
-      description: The end destination towards Kota Kinabalu
-      placeholder: "Kota Kinabalu"
+      label: Destination 2
+      description: Second destination of this route
     validations:
       required: true
 
   - type: input
-    id: inbound_route
+    id: route_2
     attributes:
-      label: Inbound Route
-      description: Google Maps link for the inbound route
+      label: Route 2
+      description: Google Maps link for Destination 2
       placeholder: "https://maps.app.goo.gl/..."
 
   - type: dropdown
-    id: inbound_notes
+    id: notes_2
     attributes:
-      label: Inbound Notes
+      label: Notes 2
       description: How reliable is this route information?
       options:
         - undef
