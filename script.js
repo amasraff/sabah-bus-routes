@@ -253,6 +253,7 @@ function buildBusCard(bus) {
   top.className = 'bus-card-top';
   top.innerHTML = `
     <span class="bus-badge" style="background:${colour}">${escHtml(busNum)}</span>
+    ${bus.uid ? `<span class="bus-uid">UID: ${escHtml(bus.uid)}</span>` : ''}
     ${remark ? `<span class="bus-remark">${escHtml(remark)}</span>` : ''}
   `;
   card.appendChild(top);
