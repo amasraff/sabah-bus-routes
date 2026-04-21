@@ -48,7 +48,7 @@
                 {
                     "destination": "dsf",
                     "route": "",
-                    "notes": "undef"
+                    "notes": "None"
                 },
                 {
                     "destination": "dsa",
@@ -56,8 +56,8 @@
                     "notes": "undef"
                 }
             ],
-            "colour": "N/A",
-            "remark": "",
+            "colour": "None",
+            "remark": "5465",
             "date_check": "254865"
         }
     ]
