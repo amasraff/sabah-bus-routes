@@ -9,7 +9,7 @@ Using JSON as the only way to store data centrally. The current data structure f
 
 There will be at least 2 layers of JSON files that on this repo; lang.json and xx_xx.json. 
 
-## lang.json
+## city.json
 This file is the first layer of the data, this acts primarily like a language hub where the visitor has to pick what language they want to see or which they understood on reading.
 
 ## xx_xxxx.json sets
