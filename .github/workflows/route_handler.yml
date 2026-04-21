@@ -20,6 +20,8 @@ jobs:
       - name: Check trigger condition
         id: check
         uses: actions/github-script@v7
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           script: |
             const autoApprove = process.env.AUTO_APPROVE === 'true';
@@ -53,6 +55,7 @@ jobs:
         id: handle
         uses: actions/github-script@v7
         env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           ISSUE_BODY: ${{ steps.check.outputs.issue_body }}
           IS_NEW_ROUTE: ${{ steps.check.outputs.is_new_route }}
           IS_MODIFY: ${{ steps.check.outputs.is_modify }}
@@ -63,11 +66,13 @@ jobs:
             const isNewRoute = process.env.IS_NEW_ROUTE === 'true';
             const isModify = process.env.IS_MODIFY === 'true';
 
-            // Parse yml form fields from issue body
+            // Parse form fields from issue body, treat _No response_ as empty
             function parseField(body, fieldId) {
               const regex = new RegExp(`### ${fieldId}\\s*\\n([\\s\\S]*?)(?=###|$)`, 'i');
               const match = body.match(regex);
-              return match ? match[1].trim() : '';
+              if (!match) return '';
+              const value = match[1].trim();
+              return value === '_No response_' ? '' : value;
             }
 
             const fileMap = {
@@ -92,21 +97,23 @@ jobs:
             if (isNewRoute) {
               const busNumber = parseField(issueBody, 'Bus Number');
               const colour = parseField(issueBody, 'Colour');
-              const outboundDestination = parseField(issueBody, 'Outbound Destination');
-              const outboundRoute = parseField(issueBody, 'Outbound Route');
-              const outboundNotes = parseField(issueBody, 'Outbound Notes');
-              const inboundDestination = parseField(issueBody, 'Inbound Destination');
-              const inboundRoute = parseField(issueBody, 'Inbound Route');
-              const inboundNotes = parseField(issueBody, 'Inbound Notes');
+              const destination1 = parseField(issueBody, 'Destination 1');
+              const route1 = parseField(issueBody, 'Route 1');
+              const notes1 = parseField(issueBody, 'Notes 1');
+              const destination2 = parseField(issueBody, 'Destination 2');
+              const route2 = parseField(issueBody, 'Route 2');
+              const notes2 = parseField(issueBody, 'Notes 2');
               const remark = parseField(issueBody, 'Remark');
               const dateCheck = parseField(issueBody, 'Date Observed');
 
-              // Check for duplicate bus number
-              const exists = data.buses.find(b => b.busNumber === busNumber);
-              if (exists) {
-                core.setOutput('success', 'false');
-                core.setOutput('message', `Bus number \`${busNumber}\` already exists in \`${file}.json\`. Please use the **Update Route** template instead.`);
-                return;
+              // Check for duplicate bus number if provided
+              if (busNumber) {
+                const exists = data.buses.find(b => b.busNumber === busNumber);
+                if (exists) {
+                  core.setOutput('success', 'false');
+                  core.setOutput('message', `Bus number \`${busNumber}\` already exists in \`${file}.json\`. Please use the **Update Route** template instead.`);
+                  return;
+                }
               }
 
               // Generate UID
@@ -120,8 +127,8 @@ jobs:
                 uid: newUid,
                 busNumber,
                 towards: [
-                  { destination: outboundDestination, route: outboundRoute, notes: outboundNotes },
-                  { destination: inboundDestination, route: inboundRoute, notes: inboundNotes }
+                  { destination: destination1, route: route1, notes: notes1 },
+                  { destination: destination2, route: route2, notes: notes2 }
                 ],
                 colour,
                 remark,
@@ -131,7 +138,7 @@ jobs:
               data.buses.push(newEntry);
               fs.writeFileSync(filePath, JSON.stringify(data, null, 4));
               core.setOutput('success', 'true');
-              core.setOutput('message', `Bus \`${busNumber}\` has been added to \`${file}.json\` with UID \`${newUid}\`.`);
+              core.setOutput('message', `Bus \`${busNumber || newUid}\` has been added to \`${file}.json\` with UID \`${newUid}\`.`);
             }
 
             // --- UPDATE ROUTE ---
@@ -198,6 +205,8 @@ jobs:
       - name: Comment and close on success
         if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'true'
         uses: actions/github-script@v7
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           script: |
             await github.rest.issues.createComment({
@@ -216,6 +225,8 @@ jobs:
       - name: Comment and label on failure
         if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'false'
         uses: actions/github-script@v7
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           script: |
             await github.rest.issues.createComment({
