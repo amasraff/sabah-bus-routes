@@ -29,7 +29,7 @@ body:
       label: Colour
       description: The colour of the bus
       options:
-        - NONE
+        - N/A
         - BLUE
         - ORANGE
         - PURPLE
