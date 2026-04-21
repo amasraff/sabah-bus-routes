@@ -24,21 +24,18 @@ body:
     attributes:
       label: UID
       description: The unique ID of the bus entry if known
-      placeholder: "001"
 
   - type: input
     id: bus_number
     attributes:
       label: Bus Number
       description: The number painted on the bus body e.g. 6A, 16A
-      placeholder: "6A"
 
   - type: input
     id: destination
     attributes:
       label: Destination
       description: The destination of the specific towards entry you want to update
-      placeholder: "Sepanggar"
 
   - type: markdown
     attributes:
@@ -48,7 +45,7 @@ body:
     id: new_route
     attributes:
       label: New Route Link
-      description: Updated Google Maps link
+      description: "Updated Google Maps link. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
 
   - type: dropdown
@@ -78,7 +75,6 @@ body:
     attributes:
       label: New Remark
       description: "To replace: enter new remark. To append to existing: start with + e.g. '+ no service on Sunday'"
-      placeholder: "wait until full"
 
   - type: input
     id: date_check
