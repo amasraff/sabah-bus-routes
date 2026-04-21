@@ -131,24 +131,6 @@ function statusInfo(notes) {
 }
 
 // ─── Normalise JSON ───────────────────────────────────────────────────────────
-/*
-  Handles two shapes:
-
-  Shape A — array of region objects (each with a buses array):
-  [
-    {
-      "region": "NORTH",
-      "description": "...",
-      "map": "...",
-      "buses": [ { busNumber, colour, remark, towards: [...] } ]
-    }
-  ]
-
-  Shape B — flat array of bus objects (no region wrapper):
-  [
-    { "busNumber": "4A", "colour": "BLUE", "region": "NORTH", "towards": [...] }
-  ]
-*/
 function normaliseData(raw) {
   const arr = Array.isArray(raw) ? raw : [raw];
   if (!arr.length) return [];
@@ -248,12 +230,14 @@ function buildBusCard(bus) {
   const card = document.createElement('div');
   card.className = 'bus-card' + (hasAny ? '' : ' no-route');
 
-  // Badge + remark
+  // Badge + UID + remark
   const top = document.createElement('div');
   top.className = 'bus-card-top';
   top.innerHTML = `
-    <span class="bus-badge" style="background:${colour}">${escHtml(busNum)}</span>
-    ${bus.uid ? `<span class="bus-uid">UID: ${escHtml(bus.uid)}</span>` : ''}
+    <div class="bus-badge-wrap">
+      <span class="bus-badge" style="background:${colour}">${escHtml(busNum)}</span>
+      ${bus.uid ? `<span class="bus-uid">UID: ${escHtml(bus.uid)}</span>` : ''}
+    </div>
     ${remark ? `<span class="bus-remark">${escHtml(remark)}</span>` : ''}
   `;
   card.appendChild(top);
@@ -411,8 +395,6 @@ async function init() {
     showError(`Could not load city data. ${err.message}`);
   }
 }
-
-
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 function escHtml(str) {
