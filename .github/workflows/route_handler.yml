@@ -207,18 +207,21 @@ jobs:
         uses: actions/github-script@v7
         env:
           FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+          ISSUE_NUMBER: ${{ steps.check.outputs.issue_number }}
+          SUCCESS_MESSAGE: ${{ steps.handle.outputs.message }}
         with:
           script: |
+            const issueNumber = parseInt(process.env.ISSUE_NUMBER, 10);
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.check.outputs.issue_number }},
-              body: `✅ ${{ steps.handle.outputs.message }}`
+              issue_number: issueNumber,
+              body: `✅ ${process.env.SUCCESS_MESSAGE}`
             });
             await github.rest.issues.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.check.outputs.issue_number }},
+              issue_number: issueNumber,
               state: 'closed'
             });
 
@@ -227,26 +230,31 @@ jobs:
         uses: actions/github-script@v7
         env:
           FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+          ISSUE_NUMBER: ${{ steps.check.outputs.issue_number }}
+          FAILURE_MESSAGE: ${{ steps.handle.outputs.message }}
         with:
           script: |
+            const issueNumber = parseInt(process.env.ISSUE_NUMBER, 10);
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.check.outputs.issue_number }},
-              body: `❌ ${{ steps.handle.outputs.message }}`
+              issue_number: issueNumber,
+              body: `❌ ${process.env.FAILURE_MESSAGE}`
             });
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.check.outputs.issue_number }},
+              issue_number: issueNumber,
               labels: ['needs-more-info']
             });
 
       - name: Commit changes
         if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'true'
+        env:
+          ISSUE_NUMBER: ${{ steps.check.outputs.issue_number }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add Data/
-          git commit -m "chore: update route data from issue #${{ steps.check.outputs.issue_number }}"
+          git commit -m "chore: update route data from issue #${ISSUE_NUMBER}"
           git push
