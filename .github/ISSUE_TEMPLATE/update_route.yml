@@ -1,0 +1,87 @@
+name: Update Route
+description: Request to modify or correct an existing bus route
+title: "Update Route"
+labels: ["modify"]
+body:
+  - type: dropdown
+    id: file
+    attributes:
+      label: File
+      description: Which file does this route belong to?
+      options:
+        - kk_centre
+        - kk_others
+        - intercity
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Locate Entry\nProvide at least one of the following to identify the route entry."
+
+  - type: input
+    id: uid
+    attributes:
+      label: UID
+      description: The unique ID of the bus entry if known
+      placeholder: "001"
+
+  - type: input
+    id: bus_number
+    attributes:
+      label: Bus Number
+      description: The number painted on the bus body e.g. 6A, 16A
+      placeholder: "6A"
+
+  - type: input
+    id: destination
+    attributes:
+      label: Destination
+      description: The destination of the specific towards entry you want to update
+      placeholder: "Sepanggar"
+
+  - type: markdown
+    attributes:
+      value: "## Fields to Update\nOnly fill in what has changed. Leave blank to keep existing data."
+
+  - type: input
+    id: new_route
+    attributes:
+      label: New Route Link
+      description: Updated Google Maps link
+      placeholder: "https://maps.app.goo.gl/..."
+
+  - type: dropdown
+    id: new_notes
+    attributes:
+      label: New Notes
+      description: Updated reliability status
+      options:
+        - undef
+        - partial
+        - complete
+
+  - type: dropdown
+    id: new_colour
+    attributes:
+      label: New Colour
+      description: Updated bus colour if changed
+      options:
+        - BLUE
+        - ORANGE
+        - PURPLE
+        - RED
+
+  - type: input
+    id: new_remark
+    attributes:
+      label: New Remark
+      description: "To replace: enter new remark. To append to existing: start with + e.g. '+ no service on Sunday'"
+      placeholder: "wait until full"
+
+  - type: input
+    id: date_check
+    attributes:
+      label: Date Observed
+      description: When did you re-observe this route? (yy-mm-dd) Optional.
+      placeholder: "25-04-21"
