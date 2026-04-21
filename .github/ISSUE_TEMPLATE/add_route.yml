@@ -21,7 +21,6 @@ body:
     attributes:
       label: Bus Number
       description: The number painted on the bus body e.g. 6A, 16A. Leave blank if unknown or not applicable.
-      placeholder: "6A"
 
   - type: dropdown
     id: colour
@@ -53,7 +52,7 @@ body:
     id: route_1
     attributes:
       label: Route 1
-      description: Google Maps link for Destination 1
+      description: "Google Maps link for Destination 1. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
 
   - type: dropdown
@@ -84,7 +83,7 @@ body:
     id: route_2
     attributes:
       label: Route 2
-      description: Google Maps link for Destination 2
+      description: "Google Maps link for Destination 2. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
 
   - type: dropdown
@@ -104,7 +103,6 @@ body:
     attributes:
       label: Remark
       description: Any additional info e.g. departure conditions, schedule notes
-      placeholder: "wait until full"
 
   - type: input
     id: date_check
