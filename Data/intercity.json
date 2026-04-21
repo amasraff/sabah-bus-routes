@@ -4,6 +4,7 @@
     "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
     "buses": [
         {
+            "uid": "001",
             "busNumber": "Beaufort",
             "towards": [
                 {
@@ -22,6 +23,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "002",
             "busNumber": "Keningau",
             "towards": [
                 {
@@ -40,6 +42,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "003",
             "busNumber": "Kudat",
             "towards": [
                 {
@@ -58,6 +61,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "004",
             "busNumber": "Kota Marudu",
             "towards": [
                 {
@@ -76,6 +80,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "005",
             "busNumber": "Kota Belud",
             "towards": [
                 {
@@ -94,6 +99,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "006",
             "busNumber": "Ranau",
             "towards": [
                 {
@@ -112,6 +118,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "007",
             "busNumber": "TUNG MA",
             "towards": [
                 {
@@ -130,6 +137,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "008",
             "busNumber": "SIDA",
             "towards": [
                 {
