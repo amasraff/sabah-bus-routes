@@ -40,6 +40,25 @@
             "colour": "",
             "remark": "",
             "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "003",
+            "busNumber": "12",
+            "towards": [
+                {
+                    "destination": "dsf",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "dsa",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "N/A",
+            "remark": "",
+            "date_check": "254865"
         }
     ]
 }
