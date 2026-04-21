@@ -14,13 +14,13 @@ They're divided into NORTH WEST SOUTH EAST OTHER INTERCITY regions and each one 
 You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet. Do refer to the contributing.md file
 
 ## Limitation
-This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will undef/incomplete to indicate that the route are not confirmed yet. I wanted to make localisation simple without data redundancy especially on the google map link part for easier data maintenance and sanitization, but I'm very bad with json + javascript. If you're keen on changing it to make it better and efficient, feel free to do so
+This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will undef/incomplete to indicate that the route are not confirmed yet. I wanted to make localisation simple without data redundancy especially on the google map link part for easier data maintenance and sanitization, but I'm very bad with json + javascript. If you're keen on changing it to make it better and efficient, feel free to do so.
 
 # License
 This is under personal license
 
 # Privacy Policy
-I prohibit the use of any data found in this repo/site to take advantage, extort, or bring any harm to the well-being of the users as well as the public bus drivers. This small project are meant to help anyone who wanted to commute via public buses.
+I prohibit the use of any data found in this repo/site to take advantage, extort, or bring any harm to the well-being of the users as well as the public bus drivers. This small project are meant to help anyone who wanted to commute via public buses. 
 
 # FAQ
 
@@ -39,3 +39,6 @@ Inbound and Outbound will have slight deviation to their routes due to how the r
 ## `undef` and `partial`?
 `undef` means the the data/information are unknown. Set as undef if the data is only obtained once. 
 `partial` means the data gathered for at least multiple times, at least twice, usually the case of their end to end routes.
+
+# Disclaimer
+This repo heavily assisted by AI. Without the help of it, this repo will look very bad and broken
