@@ -4,6 +4,7 @@
     "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
     "buses": [
         {
+            "uid": "001",
             "busNumber": "4A",
             "towards": [
                 {
@@ -22,6 +23,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "002",
             "busNumber": "4B",
             "towards": [
                 {
@@ -40,6 +42,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "003",
             "busNumber": "5A",
             "towards": [
                 {
@@ -53,11 +56,12 @@
                     "notes": "undef"
                 }
             ],
-            "colour": "BLUE",            
+            "colour": "BLUE",
             "remark": "wait until full",
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "004",
             "busNumber": "6B",
             "towards": [
                 {
@@ -76,6 +80,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "005",
             "busNumber": "7C",
             "towards": [
                 {
@@ -94,6 +99,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "006",
             "busNumber": "8A",
             "towards": [
                 {
@@ -112,6 +118,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "007",
             "busNumber": "8B",
             "towards": [
                 {
@@ -130,6 +137,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "008",
             "busNumber": "10A",
             "towards": [
                 {
@@ -148,6 +156,7 @@
             "date_check": "24 Jan 2025"
         },
         {
+            "uid": "009",
             "busNumber": "11A",
             "towards": [
                 {
@@ -166,6 +175,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "010",
             "busNumber": "11B",
             "towards": [
                 {
@@ -184,6 +194,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "011",
             "busNumber": "12A",
             "towards": [
                 {
@@ -202,6 +213,7 @@
             "date_check": "27 Jan 2025"
         },
         {
+            "uid": "012",
             "busNumber": "12B",
             "towards": [
                 {
@@ -220,6 +232,7 @@
             "date_check": "27 Jan 2025"
         },
         {
+            "uid": "013",
             "busNumber": "12A*",
             "towards": [
                 {
@@ -238,6 +251,7 @@
             "date_check": "27 Jan 2025"
         },
         {
+            "uid": "014",
             "busNumber": "12B*",
             "towards": [
                 {
@@ -256,6 +270,7 @@
             "date_check": "27 Jan 2025"
         },
         {
+            "uid": "015",
             "busNumber": "13A",
             "towards": [
                 {
@@ -274,6 +289,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "016",
             "busNumber": "13B",
             "towards": [
                 {
@@ -292,6 +308,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "017",
             "busNumber": "14B",
             "towards": [
                 {
@@ -310,6 +327,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "018",
             "busNumber": "15A",
             "towards": [
                 {
@@ -328,6 +346,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "019",
             "busNumber": "16A",
             "towards": [
                 {
@@ -346,6 +365,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "020",
             "busNumber": "17A",
             "towards": [
                 {
@@ -364,6 +384,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "021",
             "busNumber": "18A",
             "towards": [
                 {
@@ -382,6 +403,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "022",
             "busNumber": "18C",
             "towards": [
                 {
@@ -400,6 +422,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "023",
             "busNumber": "19A",
             "towards": [
                 {
@@ -418,6 +441,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "024",
             "busNumber": "19C",
             "towards": [
                 {
@@ -436,6 +460,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "025",
             "busNumber": "20A",
             "towards": [
                 {
@@ -454,6 +479,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "026",
             "busNumber": "21A",
             "towards": [
                 {
@@ -472,6 +498,7 @@
             "date_check": "11-Nov-24"
         },
         {
+            "uid": "027",
             "busNumber": "21B",
             "towards": [
                 {
