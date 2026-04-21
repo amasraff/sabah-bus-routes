@@ -1,38 +1,42 @@
 ---
 name: Update Route
-about: Request to have a route to be modified/updated if there's any changes
+about: Request to have a route modified/updated if there are any changes
 title: Update Route
 labels: modify
 assignees: ''
 
 ---
 
-** Guide **
-specify details as outlined below
-[old] > [new]
+**Guide**
+Use this to correct or update an existing route's data. `busNumber` and `file` are required to locate the entry. All other fields are optional — only fill in what has changed.
 
-Region: NORTH > WEST
-bus number: 6A > 6B
-destination: Putatan > kinarut
+- Use `[old] > [new]` for any field you want to replace
+- Use `[old] + [new]` for `remark` only, if you want to append instead of replace
+- Leave a field blank if it should stay as-is
+
+**Required**
+```
+file: kk_centre / kk_others / intercity
+busNumber: 6A
+```
+
+**Optional (only fill in what changed)**
+```
+destination: Putatan > Kinarut
 route: [old link] > [new link]
-notes: [old] > [new]
-remarks: [old] > [new]
+notes: partial > complete
+colour: BLUE > RED
+remark: [old] > [new]
+date_check: 25-04-21
+```
 
-Only 'remarks' are allowed to be appended. 
+For `notes`, accepted values are `undef`, `partial`, `complete`
 
-If some part of the data supposed to stay, you still have to specify which data so I will know which one to update such as follows
+For `colour`, accepted values are `BLUE`, `ORANGE`, `PURPLE`, `RED`
 
-Region: NORTH 
-bus number: 6A
-destination: Putatan
-route: [old link] > [new link]
-notes: [old] > [new]
-remarks: [old] > [new]
+For `date_check`, use format `yy-mm-dd`. Only include if you have re-observed the route.
 
-The above example means NORTH region, bus number, destination stays, but route, notes and remarks will be updated
-
-To append additional info into remarks, do the following
-Region: NORTH > WEST
-bus number: 6A > 6B
-destination: Putatan > kinarut
-remarks: [old] + [new]
+For `remark`, to append instead of replace:
+```
+remark: [old] + [new]
+```
