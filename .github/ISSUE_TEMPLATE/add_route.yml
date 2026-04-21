@@ -1,0 +1,118 @@
+name: Add Route Request
+description: Add a new known bus route
+title: "Add Route"
+labels: ["new route"]
+body:
+  - type: dropdown
+    id: file
+    attributes:
+      label: File
+      description: Which file does this route belong to?
+      options:
+        - kk_centre
+        - kk_others
+        - intercity
+    validations:
+      required: true
+
+  - type: input
+    id: bus_number
+    attributes:
+      label: Bus Number
+      description: The number painted on the bus body e.g. 6A, 16A
+      placeholder: "6A"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: colour
+    attributes:
+      label: Colour
+      description: The colour of the bus
+      options:
+        - BLUE
+        - ORANGE
+        - PURPLE
+        - RED
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Outbound (away from KK)"
+
+  - type: input
+    id: outbound_destination
+    attributes:
+      label: Outbound Destination
+      description: The end destination away from Kota Kinabalu
+      placeholder: "Sepanggar"
+    validations:
+      required: true
+
+  - type: input
+    id: outbound_route
+    attributes:
+      label: Outbound Route
+      description: Google Maps link for the outbound route
+      placeholder: "https://maps.app.goo.gl/..."
+
+  - type: dropdown
+    id: outbound_notes
+    attributes:
+      label: Outbound Notes
+      description: How reliable is this route information?
+      options:
+        - undef
+        - partial
+        - complete
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "## Inbound (towards KK)"
+
+  - type: input
+    id: inbound_destination
+    attributes:
+      label: Inbound Destination
+      description: The end destination towards Kota Kinabalu
+      placeholder: "Kota Kinabalu"
+    validations:
+      required: true
+
+  - type: input
+    id: inbound_route
+    attributes:
+      label: Inbound Route
+      description: Google Maps link for the inbound route
+      placeholder: "https://maps.app.goo.gl/..."
+
+  - type: dropdown
+    id: inbound_notes
+    attributes:
+      label: Inbound Notes
+      description: How reliable is this route information?
+      options:
+        - undef
+        - partial
+        - complete
+    validations:
+      required: true
+
+  - type: input
+    id: remark
+    attributes:
+      label: Remark
+      description: Any additional info e.g. departure conditions, schedule notes
+      placeholder: "wait until full"
+
+  - type: input
+    id: date_check
+    attributes:
+      label: Date Observed
+      description: When did you observe this route? (yy-mm-dd)
+      placeholder: "25-04-21"
+    validations:
+      required: true
