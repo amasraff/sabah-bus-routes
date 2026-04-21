@@ -342,6 +342,14 @@
       background: var(--surface-2);
     }
 
+    .bus-badge-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+
     .bus-badge {
       font-size: 0.78rem;
       font-weight: 800;
@@ -351,9 +359,14 @@
       white-space: nowrap;
       min-width: 38px;
       text-align: center;
-      flex-shrink: 0;
       letter-spacing: .03em;
-      margin-top: 1px;
+    }
+
+    .bus-uid {
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: .03em;
+      white-space: nowrap;
     }
 
     .bus-remark {
@@ -485,9 +498,9 @@
       }
 
       #layout {
-        flex: 1;              /* fill all remaining body height */
+        flex: 1;
         flex-direction: row;
-        min-height: 0;        /* allow flex children to shrink */
+        min-height: 0;
         overflow: hidden;
       }
 
@@ -498,10 +511,9 @@
         padding: 16px;
       }
 
-      /* Map panel always visible on desktop */
       #mapPanel {
         flex: 1;
-        display: flex !important;  /* override [hidden] on desktop */
+        display: flex !important;
         flex-direction: column;
         min-height: 0;
         border-bottom: none;
@@ -511,7 +523,7 @@
 
       #mapFrame {
         flex: 1;
-        height: 0;  /* let flex stretch it, not content */
+        height: 0;
       }
 
       #mapNoEmbed { flex: 1; }
@@ -526,7 +538,6 @@
 <body>
 
   <header class="site-header">
-    <!-- Bus icon -->
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <rect x="2" y="4" width="20" height="14" rx="3"/>
       <path d="M2 10h20M7 4v4M17 4v4"/>
@@ -540,19 +551,16 @@
     </div>
   </header>
 
-  <!-- City selection (shown only if multiple cities exist) -->
   <nav id="cityNav" class="nav-strip" aria-label="City" hidden>
     <span class="nav-strip-label">City</span>
   </nav>
 
-  <!-- Region selection -->
   <nav id="regionNav" class="nav-strip" aria-label="Region" hidden>
     <span class="nav-strip-label">Region</span>
   </nav>
 
   <div id="layout">
 
-    <!-- Route list (left on desktop, bottom on mobile) -->
     <section id="routeList" aria-label="Bus routes">
       <div class="spinner-wrap">
         <div class="spinner"></div>
@@ -560,7 +568,6 @@
       </div>
     </section>
 
-    <!-- Map panel (right on desktop, top on mobile when active) -->
     <aside id="mapPanel" hidden aria-label="Route map">
       <div class="map-header">
         <span id="mapLabel">Map</span>
@@ -573,7 +580,6 @@
         </a>
       </div>
 
-      <!-- Default empty state -->
       <div id="mapEmpty">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M3 11l19-9-9 19-2-8-8-2z"/>
@@ -581,7 +587,6 @@
         <p>Select a route from the list to view it on the map.</p>
       </div>
 
-      <!-- Iframe for embeddable URLs -->
       <iframe
         id="mapFrame"
         title="Bus route map"
@@ -591,7 +596,6 @@
         hidden
       ></iframe>
 
-      <!-- Fallback for non-embeddable URLs -->
       <div id="mapNoEmbed" hidden>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
