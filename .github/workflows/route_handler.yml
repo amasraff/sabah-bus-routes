@@ -1,0 +1,241 @@
+name: Route Handler
+
+on:
+  issues:
+    types: [labeled, opened]
+
+# Set to true to auto-approve on issue open, false to wait for 'approved' label
+# Future option: move this to GitHub repo variables (Settings > Secrets and variables > Actions > Variables)
+env:
+  AUTO_APPROVE: false
+
+jobs:
+  handle_route:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      contents: write
+
+    steps:
+      - name: Check trigger condition
+        id: check
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const autoApprove = process.env.AUTO_APPROVE === 'true';
+            const eventName = context.eventName;
+            const payload = context.payload;
+            const labels = payload.issue.labels.map(l => l.name);
+            const isApprovedLabel = payload.label?.name === 'approved';
+            const isNewRoute = labels.includes('new route');
+            const isModify = labels.includes('modify');
+
+            // Determine if we should proceed
+            if (autoApprove && eventName === 'issues' && payload.action === 'opened') {
+              core.setOutput('proceed', 'true');
+            } else if (!autoApprove && isApprovedLabel) {
+              core.setOutput('proceed', 'true');
+            } else {
+              core.setOutput('proceed', 'false');
+            }
+
+            core.setOutput('is_new_route', isNewRoute.toString());
+            core.setOutput('is_modify', isModify.toString());
+            core.setOutput('issue_number', payload.issue.number.toString());
+            core.setOutput('issue_body', payload.issue.body);
+
+      - name: Checkout repo
+        if: steps.check.outputs.proceed == 'true'
+        uses: actions/checkout@v4
+
+      - name: Parse and handle issue
+        if: steps.check.outputs.proceed == 'true'
+        id: handle
+        uses: actions/github-script@v7
+        env:
+          ISSUE_BODY: ${{ steps.check.outputs.issue_body }}
+          IS_NEW_ROUTE: ${{ steps.check.outputs.is_new_route }}
+          IS_MODIFY: ${{ steps.check.outputs.is_modify }}
+        with:
+          script: |
+            const fs = require('fs');
+            const issueBody = process.env.ISSUE_BODY;
+            const isNewRoute = process.env.IS_NEW_ROUTE === 'true';
+            const isModify = process.env.IS_MODIFY === 'true';
+
+            // Parse yml form fields from issue body
+            function parseField(body, fieldId) {
+              const regex = new RegExp(`### ${fieldId}\\s*\\n([\\s\\S]*?)(?=###|$)`, 'i');
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+
+            const fileMap = {
+              'kk_centre': 'Data/kk_centre.json',
+              'kk_others': 'Data/kk_others.json',
+              'intercity': 'Data/intercity.json'
+            };
+
+            const file = parseField(issueBody, 'File');
+            const filePath = fileMap[file];
+
+            if (!filePath) {
+              core.setOutput('success', 'false');
+              core.setOutput('message', 'Invalid file specified. Must be one of: kk_centre, kk_others, intercity.');
+              return;
+            }
+
+            const raw = fs.readFileSync(filePath, 'utf8');
+            const data = JSON.parse(raw);
+
+            // --- ADD ROUTE ---
+            if (isNewRoute) {
+              const busNumber = parseField(issueBody, 'Bus Number');
+              const colour = parseField(issueBody, 'Colour');
+              const outboundDestination = parseField(issueBody, 'Outbound Destination');
+              const outboundRoute = parseField(issueBody, 'Outbound Route');
+              const outboundNotes = parseField(issueBody, 'Outbound Notes');
+              const inboundDestination = parseField(issueBody, 'Inbound Destination');
+              const inboundRoute = parseField(issueBody, 'Inbound Route');
+              const inboundNotes = parseField(issueBody, 'Inbound Notes');
+              const remark = parseField(issueBody, 'Remark');
+              const dateCheck = parseField(issueBody, 'Date Observed');
+
+              // Check for duplicate bus number
+              const exists = data.buses.find(b => b.busNumber === busNumber);
+              if (exists) {
+                core.setOutput('success', 'false');
+                core.setOutput('message', `Bus number \`${busNumber}\` already exists in \`${file}.json\`. Please use the **Update Route** template instead.`);
+                return;
+              }
+
+              // Generate UID
+              const maxUid = data.buses.reduce((max, b) => {
+                const num = parseInt(b.uid || '0', 10);
+                return num > max ? num : max;
+              }, 0);
+              const newUid = String(maxUid + 1).padStart(3, '0');
+
+              const newEntry = {
+                uid: newUid,
+                busNumber,
+                towards: [
+                  { destination: outboundDestination, route: outboundRoute, notes: outboundNotes },
+                  { destination: inboundDestination, route: inboundRoute, notes: inboundNotes }
+                ],
+                colour,
+                remark,
+                date_check: dateCheck
+              };
+
+              data.buses.push(newEntry);
+              fs.writeFileSync(filePath, JSON.stringify(data, null, 4));
+              core.setOutput('success', 'true');
+              core.setOutput('message', `Bus \`${busNumber}\` has been added to \`${file}.json\` with UID \`${newUid}\`.`);
+            }
+
+            // --- UPDATE ROUTE ---
+            if (isModify) {
+              const uid = parseField(issueBody, 'UID');
+              const busNumber = parseField(issueBody, 'Bus Number');
+              const destination = parseField(issueBody, 'Destination');
+
+              if (!uid && !busNumber && !destination) {
+                core.setOutput('success', 'false');
+                core.setOutput('message', 'Please provide at least one of: UID, Bus Number, or Destination to locate the entry.');
+                return;
+              }
+
+              // Locate entry — uid takes priority
+              let entry = null;
+              if (uid) {
+                entry = data.buses.find(b => b.uid === uid);
+              } else if (busNumber) {
+                entry = data.buses.find(b => b.busNumber === busNumber);
+              }
+
+              if (!entry) {
+                core.setOutput('success', 'false');
+                core.setOutput('message', `Entry not found in \`${file}.json\`. Please verify the UID, bus number, or destination and try again.`);
+                return;
+              }
+
+              // Update top-level fields
+              const newColour = parseField(issueBody, 'New Colour');
+              const newRemark = parseField(issueBody, 'New Remark');
+              const dateCheck = parseField(issueBody, 'Date Observed');
+
+              if (newColour) entry.colour = newColour;
+              if (dateCheck) entry.date_check = dateCheck;
+              if (newRemark) {
+                if (newRemark.startsWith('+')) {
+                  entry.remark = `${entry.remark} ${newRemark.slice(1).trim()}`.trim();
+                } else {
+                  entry.remark = newRemark;
+                }
+              }
+
+              // Update towards entry if destination specified
+              const newRoute = parseField(issueBody, 'New Route Link');
+              const newNotes = parseField(issueBody, 'New Notes');
+
+              if (destination) {
+                const towards = entry.towards.find(t => t.destination.toLowerCase() === destination.toLowerCase());
+                if (!towards) {
+                  core.setOutput('success', 'false');
+                  core.setOutput('message', `Destination \`${destination}\` not found in entry. Please check the destination name.`);
+                  return;
+                }
+                if (newRoute) towards.route = newRoute;
+                if (newNotes) towards.notes = newNotes;
+              }
+
+              fs.writeFileSync(filePath, JSON.stringify(data, null, 4));
+              core.setOutput('success', 'true');
+              core.setOutput('message', `Entry has been updated in \`${file}.json\`.`);
+            }
+
+      - name: Comment and close on success
+        if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ steps.check.outputs.issue_number }},
+              body: `✅ ${{ steps.handle.outputs.message }}`
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ steps.check.outputs.issue_number }},
+              state: 'closed'
+            });
+
+      - name: Comment and label on failure
+        if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ steps.check.outputs.issue_number }},
+              body: `❌ ${{ steps.handle.outputs.message }}`
+            });
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: ${{ steps.check.outputs.issue_number }},
+              labels: ['needs-more-info']
+            });
+
+      - name: Commit changes
+        if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Data/
+          git commit -m "chore: update route data from issue #${{ steps.check.outputs.issue_number }}"
+          git push
