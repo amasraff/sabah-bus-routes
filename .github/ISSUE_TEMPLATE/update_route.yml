@@ -67,6 +67,7 @@ body:
       label: New Colour
       description: Updated bus colour if changed
       options:
+        - N/A
         - BLUE
         - ORANGE
         - PURPLE
