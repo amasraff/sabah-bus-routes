@@ -15,13 +15,11 @@ body:
         - Add New File
     validations:
       required: true
-
   - type: input
-    id: bus_number
+    id: bus_name
     attributes:
-      label: Bus Number
-      description: The number painted on the bus body e.g. 6A, 16A. Leave blank if unknown or not applicable.
-
+      label: Bus Name
+      description: The name or code on the bus body e.g. 6A, 16A, TUNG MA, Beaufort. Leave blank if unknown or not applicable.
   - type: dropdown
     id: colour
     attributes:
@@ -35,11 +33,9 @@ body:
         - RED
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: "## Destination 1"
-
   - type: input
     id: destination_1
     attributes:
@@ -47,14 +43,12 @@ body:
       description: First destination of this route
     validations:
       required: true
-
   - type: input
     id: route_1
     attributes:
       label: Route 1
       description: "Google Maps link for Destination 1. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
-
   - type: dropdown
     id: notes_1
     attributes:
@@ -66,11 +60,9 @@ body:
         - complete
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: "## Destination 2"
-
   - type: input
     id: destination_2
     attributes:
@@ -78,14 +70,12 @@ body:
       description: Second destination of this route
     validations:
       required: true
-
   - type: input
     id: route_2
     attributes:
       label: Route 2
       description: "Google Maps link for Destination 2. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
-
   - type: dropdown
     id: notes_2
     attributes:
@@ -97,13 +87,11 @@ body:
         - complete
     validations:
       required: true
-
   - type: input
     id: remark
     attributes:
       label: Remark
       description: Any additional info e.g. departure conditions, schedule notes
-
   - type: input
     id: date_check
     attributes:
