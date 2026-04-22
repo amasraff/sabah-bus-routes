@@ -19,7 +19,7 @@ body:
     id: bus_name
     attributes:
       label: Bus Name
-      description: The name or code on the bus body e.g. 6A, 16A, TUNG MA, Beaufort. Leave blank if unknown or not applicable.
+      description: The name or code on the bus body e.g. 6A, 16A, TUNG MA. Leave blank if unknown or not applicable.
   - type: dropdown
     id: colour
     attributes:
@@ -98,5 +98,3 @@ body:
       label: Date Observed
       description: When did you observe this route? (yy-mm-dd)
       placeholder: "25-04-21"
-    validations:
-      required: true
