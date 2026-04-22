@@ -14,40 +14,33 @@ body:
         - intercity
     validations:
       required: true
-
   - type: markdown
     attributes:
       value: "## Locate Entry\nProvide at least one of the following to identify the route entry."
-
   - type: input
     id: uid
     attributes:
       label: UID
       description: The unique ID of the bus entry if known
-
   - type: input
-    id: bus_number
+    id: bus_name
     attributes:
-      label: Bus Number
-      description: The number painted on the bus body e.g. 6A, 16A
-
+      label: Bus Name
+      description: The name or code on the bus body e.g. 6A, 16A, TUNG MA, Beaufort
   - type: input
     id: destination
     attributes:
       label: Destination
       description: The destination of the specific towards entry you want to update
-
   - type: markdown
     attributes:
       value: "## Fields to Update\nOnly fill in what has changed. Leave blank to keep existing data."
-
   - type: input
     id: new_route
     attributes:
       label: New Route Link
       description: "Updated Google Maps link. [How to generate a route link](https://github.com/amasraff/sabah-bus-routes/wiki/Create-Route--Link)"
       placeholder: "https://maps.app.goo.gl/..."
-
   - type: dropdown
     id: new_notes
     attributes:
@@ -57,7 +50,6 @@ body:
         - undef
         - partial
         - complete
-
   - type: dropdown
     id: new_colour
     attributes:
@@ -69,13 +61,11 @@ body:
         - ORANGE
         - PURPLE
         - RED
-
   - type: input
     id: new_remark
     attributes:
       label: New Remark
       description: "To replace: enter new remark. To append to existing: start with + e.g. '+ no service on Sunday'"
-
   - type: input
     id: date_check
     attributes:
