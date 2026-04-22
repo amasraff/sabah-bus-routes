@@ -19,9 +19,7 @@ jobs:
     steps:
       - name: Check trigger condition
         id: check
-        uses: actions/github-script@v7
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        uses: actions/github-script@v8
         with:
           script: |
             const autoApprove = process.env.AUTO_APPROVE === 'true';
@@ -48,14 +46,13 @@ jobs:
 
       - name: Checkout repo
         if: steps.check.outputs.proceed == 'true'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Parse and handle issue
         if: steps.check.outputs.proceed == 'true'
         id: handle
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           ISSUE_BODY: ${{ steps.check.outputs.issue_body }}
           IS_NEW_ROUTE: ${{ steps.check.outputs.is_new_route }}
           IS_MODIFY: ${{ steps.check.outputs.is_modify }}
@@ -95,7 +92,7 @@ jobs:
 
             // --- ADD ROUTE ---
             if (isNewRoute) {
-              const busNumber = parseField(issueBody, 'Bus Number');
+              const busName = parseField(issueBody, 'Bus Name');
               const colour = parseField(issueBody, 'Colour');
               const destination1 = parseField(issueBody, 'Destination 1');
               const route1 = parseField(issueBody, 'Route 1');
@@ -106,12 +103,12 @@ jobs:
               const remark = parseField(issueBody, 'Remark');
               const dateCheck = parseField(issueBody, 'Date Observed');
 
-              // Check for duplicate bus number if provided
-              if (busNumber) {
-                const exists = data.buses.find(b => b.busNumber === busNumber);
+              // Check for duplicate bus name if provided
+              if (busName) {
+                const exists = data.buses.find(b => b.busName === busName);
                 if (exists) {
                   core.setOutput('success', 'false');
-                  core.setOutput('message', `Bus number \`${busNumber}\` already exists in \`${file}.json\`. Please use the **Update Route** template instead.`);
+                  core.setOutput('message', `Bus \`${busName}\` already exists in \`${file}.json\`. Please use the **Update Route** template instead.`);
                   return;
                 }
               }
@@ -125,7 +122,7 @@ jobs:
 
               const newEntry = {
                 uid: newUid,
-                busNumber,
+                busName,
                 towards: [
                   { destination: destination1, route: route1, notes: notes1 },
                   { destination: destination2, route: route2, notes: notes2 }
@@ -138,18 +135,18 @@ jobs:
               data.buses.push(newEntry);
               fs.writeFileSync(filePath, JSON.stringify(data, null, 4));
               core.setOutput('success', 'true');
-              core.setOutput('message', `Bus \`${busNumber || newUid}\` has been added to \`${file}.json\` with UID \`${newUid}\`.`);
+              core.setOutput('message', `Bus \`${busName || newUid}\` has been added to \`${file}.json\` with UID \`${newUid}\`.`);
             }
 
             // --- UPDATE ROUTE ---
             if (isModify) {
               const uid = parseField(issueBody, 'UID');
-              const busNumber = parseField(issueBody, 'Bus Number');
+              const busName = parseField(issueBody, 'Bus Name');
               const destination = parseField(issueBody, 'Destination');
 
-              if (!uid && !busNumber && !destination) {
+              if (!uid && !busName && !destination) {
                 core.setOutput('success', 'false');
-                core.setOutput('message', 'Please provide at least one of: UID, Bus Number, or Destination to locate the entry.');
+                core.setOutput('message', 'Please provide at least one of: UID, Bus Name, or Destination to locate the entry.');
                 return;
               }
 
@@ -157,13 +154,13 @@ jobs:
               let entry = null;
               if (uid) {
                 entry = data.buses.find(b => b.uid === uid);
-              } else if (busNumber) {
-                entry = data.buses.find(b => b.busNumber === busNumber);
+              } else if (busName) {
+                entry = data.buses.find(b => b.busName === busName);
               }
 
               if (!entry) {
                 core.setOutput('success', 'false');
-                core.setOutput('message', `Entry not found in \`${file}.json\`. Please verify the UID, bus number, or destination and try again.`);
+                core.setOutput('message', `Entry not found in \`${file}.json\`. Please verify the UID, bus name, or destination and try again.`);
                 return;
               }
 
@@ -204,9 +201,8 @@ jobs:
 
       - name: Comment and close on success
         if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'true'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           ISSUE_NUMBER: ${{ steps.check.outputs.issue_number }}
           SUCCESS_MESSAGE: ${{ steps.handle.outputs.message }}
         with:
@@ -227,9 +223,8 @@ jobs:
 
       - name: Comment and label on failure
         if: steps.check.outputs.proceed == 'true' && steps.handle.outputs.success == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           ISSUE_NUMBER: ${{ steps.check.outputs.issue_number }}
           FAILURE_MESSAGE: ${{ steps.handle.outputs.message }}
         with:
