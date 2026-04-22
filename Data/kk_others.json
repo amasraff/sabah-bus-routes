@@ -5,7 +5,7 @@
     "buses": [
         {
             "uid": "001",
-            "busNumber": "",
+            "busName": "",
             "towards": [
                 {
                     "destination": "Sepanggar",
@@ -24,7 +24,7 @@
         },
         {
             "uid": "002",
-            "busNumber": "",
+            "busName": "",
             "towards": [
                 {
                     "destination": "Menggatal",
@@ -43,7 +43,7 @@
         },
         {
             "uid": "003",
-            "busNumber": "12",
+            "busName": "12",
             "towards": [
                 {
                     "destination": "dsf",
