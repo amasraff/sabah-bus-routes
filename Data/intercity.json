@@ -5,6 +5,164 @@
     "buses": [
         {
             "uid": "001",
+            "busName": "Beaufort",
+            "towards": [
+                {
+                    "destination": "Beaufort",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "002",
+            "busName": "Keningau",
+            "towards": [
+                {
+                    "destination": "Keningau",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "003",
+            "busName": "Kudat",
+            "towards": [
+                {
+                    "destination": "Kudat",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "004",
+            "busName": "Kota Marudu",
+            "towards": [
+                {
+                    "destination": "Kota Marudu",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "005",
+            "busName": "Kota Belud",
+            "towards": [
+                {
+                    "destination": "Kota Belud",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "006",
+            "busName": "Ranau",
+            "towards": [
+                {
+                    "destination": "Ranau",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "007",
+            "busName": "TUNG MA",
+            "towards": [
+                {
+                    "destination": "Tawau",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        },
+        {
+            "uid": "008",
+            "busName": "SIDA",
+            "towards": [
+                {
+                    "destination": "Tawau",
+                    "route": "",
+                    "notes": "undef"
+                },
+                {
+                    "destination": "Kota Kinabalu",
+                    "route": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "",
+            "remark": "",
+            "date_check": "11-Nov-24"
+        }
+    ]
+}{
+    "region": "INTERCITY",
+    "description": "Intercity transportation routes around Sabah. They generally require ticket at their respective booth/kiosk",
+    "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
+    "buses": [
+        {
+            "uid": "001",
             "busNumber": "Beaufort",
             "towards": [
                 {
