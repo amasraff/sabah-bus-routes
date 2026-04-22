@@ -8,7 +8,7 @@ There are no known routes where the bus driver will take except by asking them d
 To create public bus transit map chart to assist anyone who are planning to commute via these bus transits. By just using google map links.
 
 ## Bus Transit Routes?
-They're divided into NORTH WEST SOUTH EAST OTHER INTERCITY regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
+Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
 
 ## Contributing
 Go to issue section and add new issue to add new route or update existing route there. Do refer to the contributing.md file on how to generate the route link.
