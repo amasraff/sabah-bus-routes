@@ -5,7 +5,7 @@
     "buses": [
         {
             "uid": "001",
-            "busNumber": "4A",
+            "busName": "4A",
             "towards": [
                 {
                     "destination": "Inanam",
@@ -24,7 +24,7 @@
         },
         {
             "uid": "002",
-            "busNumber": "4B",
+            "busName": "4B",
             "towards": [
                 {
                     "destination": "Inanam",
@@ -43,7 +43,7 @@
         },
         {
             "uid": "003",
-            "busNumber": "5A",
+            "busName": "5A",
             "towards": [
                 {
                     "destination": "Menggatal",
@@ -62,7 +62,7 @@
         },
         {
             "uid": "004",
-            "busNumber": "6B",
+            "busName": "6B",
             "towards": [
                 {
                     "destination": "Sepanggar",
@@ -81,7 +81,7 @@
         },
         {
             "uid": "005",
-            "busNumber": "7C",
+            "busName": "7C",
             "towards": [
                 {
                     "destination": "Telipok Ria",
@@ -100,7 +100,7 @@
         },
         {
             "uid": "006",
-            "busNumber": "8A",
+            "busName": "8A",
             "towards": [
                 {
                     "destination": "Tuaran",
@@ -119,7 +119,7 @@
         },
         {
             "uid": "007",
-            "busNumber": "8B",
+            "busName": "8B",
             "towards": [
                 {
                     "destination": "Tuaran",
@@ -138,7 +138,7 @@
         },
         {
             "uid": "008",
-            "busNumber": "10A",
+            "busName": "10A",
             "towards": [
                 {
                     "destination": "Tamparuli",
@@ -157,7 +157,7 @@
         },
         {
             "uid": "009",
-            "busNumber": "11A",
+            "busName": "11A",
             "towards": [
                 {
                     "destination": "Luyang",
@@ -176,7 +176,7 @@
         },
         {
             "uid": "010",
-            "busNumber": "11B",
+            "busName": "11B",
             "towards": [
                 {
                     "destination": "Luyang",
@@ -195,7 +195,7 @@
         },
         {
             "uid": "011",
-            "busNumber": "12A",
+            "busName": "12A",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -214,7 +214,7 @@
         },
         {
             "uid": "012",
-            "busNumber": "12B",
+            "busName": "12B",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -233,7 +233,7 @@
         },
         {
             "uid": "013",
-            "busNumber": "12A*",
+            "busName": "12A*",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -252,7 +252,7 @@
         },
         {
             "uid": "014",
-            "busNumber": "12B*",
+            "busName": "12B*",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -271,7 +271,7 @@
         },
         {
             "uid": "015",
-            "busNumber": "13A",
+            "busName": "13A",
             "towards": [
                 {
                     "destination": "Penampang",
@@ -290,7 +290,7 @@
         },
         {
             "uid": "016",
-            "busNumber": "13B",
+            "busName": "13B",
             "towards": [
                 {
                     "destination": "Penampang",
@@ -309,7 +309,7 @@
         },
         {
             "uid": "017",
-            "busNumber": "14B",
+            "busName": "14B",
             "towards": [
                 {
                     "destination": "Kepayan Ridge",
@@ -328,7 +328,7 @@
         },
         {
             "uid": "018",
-            "busNumber": "15A",
+            "busName": "15A",
             "towards": [
                 {
                     "destination": "Sembulan",
@@ -347,7 +347,7 @@
         },
         {
             "uid": "019",
-            "busNumber": "16A",
+            "busName": "16A",
             "towards": [
                 {
                     "destination": "Tanjung Aru",
@@ -366,7 +366,7 @@
         },
         {
             "uid": "020",
-            "busNumber": "17A",
+            "busName": "17A",
             "towards": [
                 {
                     "destination": "KG. Ganang",
@@ -385,7 +385,7 @@
         },
         {
             "uid": "021",
-            "busNumber": "18A",
+            "busName": "18A",
             "towards": [
                 {
                     "destination": "Putatan",
@@ -404,7 +404,7 @@
         },
         {
             "uid": "022",
-            "busNumber": "18C",
+            "busName": "18C",
             "towards": [
                 {
                     "destination": "Putatan",
@@ -423,7 +423,7 @@
         },
         {
             "uid": "023",
-            "busNumber": "19A",
+            "busName": "19A",
             "towards": [
                 {
                     "destination": "Lok Kawi",
@@ -442,7 +442,7 @@
         },
         {
             "uid": "024",
-            "busNumber": "19C",
+            "busName": "19C",
             "towards": [
                 {
                     "destination": "Lok Kawi",
@@ -461,7 +461,7 @@
         },
         {
             "uid": "025",
-            "busNumber": "20A",
+            "busName": "20A",
             "towards": [
                 {
                     "destination": "Kinarut",
@@ -480,7 +480,7 @@
         },
         {
             "uid": "026",
-            "busNumber": "21A",
+            "busName": "21A",
             "towards": [
                 {
                     "destination": "Papar",
@@ -499,7 +499,7 @@
         },
         {
             "uid": "027",
-            "busNumber": "21B",
+            "busName": "21B",
             "towards": [
                 {
                     "destination": "Papar",
