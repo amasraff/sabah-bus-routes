@@ -11,7 +11,7 @@ To create public bus transit map chart to assist anyone who are planning to comm
 They're divided into NORTH WEST SOUTH EAST OTHER INTERCITY regions and each one of the bus' destination are colour coded. Their specific routes and destination are then designated with number paired with a letter. E.G [16A] that goes to Tanjung Aru area/region.
 
 ## Contributing
-You're free to contribute to this project by sending a pull request. As of now there are no good formating to use for each of the regions yet. Do refer to the contributing.md file
+Go to issue section and add new issue to add new route or update existing route there. Do refer to the contributing.md file on how to generate the route link.
 
 ## Limitation
 This will consume time and money in order to observe record and memorise the route that they will take reliably. Of course, the drivers can be asked on which route they will take by showing them the map and let them show us the route that they take. Some of the routes will undef/incomplete to indicate that the route are not confirmed yet. I wanted to make localisation simple without data redundancy especially on the google map link part for easier data maintenance and sanitization, but I'm very bad with json + javascript. If you're keen on changing it to make it better and efficient, feel free to do so.
