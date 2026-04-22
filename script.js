@@ -148,7 +148,7 @@ function normaliseData(raw) {
   }
 
   // Shape B: flat bus list
-  if (first.busNumber !== undefined) {
+  if (first.busName !== undefined) {
     const map = new Map();
     for (const bus of arr) {
       const key = bus.region || 'Routes';
@@ -222,7 +222,7 @@ function renderRoutes(rawData) {
 
 function buildBusCard(bus) {
   const colour  = resolveColour(bus.colour || bus.color);
-  const busNum  = (bus.busNumber || '?').replace(/^\[|\]$/g, '');
+  const busName = (bus.busName || '?').replace(/^\[|\]$/g, '');
   const remark  = bus.remark || '';
   const towards = Array.isArray(bus.towards) ? bus.towards : [];
   const hasAny  = towards.some(t => t.route && t.route !== 'undef');
@@ -235,7 +235,7 @@ function buildBusCard(bus) {
   top.className = 'bus-card-top';
   top.innerHTML = `
     <div class="bus-badge-wrap">
-      <span class="bus-badge" style="background:${colour}">${escHtml(busNum)}</span>
+      <span class="bus-badge" style="background:${colour}">${escHtml(busName)}</span>
       ${bus.uid ? `<span class="bus-uid">UID: ${escHtml(bus.uid)}</span>` : ''}
     </div>
     ${remark ? `<span class="bus-remark">${escHtml(remark)}</span>` : ''}
@@ -275,7 +275,7 @@ function buildBusCard(bus) {
         deselect();
         row.classList.add('selected');
         state.selectedDir = { card, row };
-        openMap(dir.route, `[${busNum}] → ${dir.destination}`);
+        openMap(dir.route, `[${busName}] → ${dir.destination}`);
       };
       row.addEventListener('click', activate);
       row.addEventListener('keydown', e => {
