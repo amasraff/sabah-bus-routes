@@ -72,6 +72,16 @@ jobs:
               return value === '_No response_' ? '' : value;
             }
 
+            // Format date to yy-mm-dd, fallback to issue submission date
+            function formatDate(raw, fallback) {
+              const d = raw ? new Date(raw) : NaN;
+              const src = isNaN(d) ? new Date(fallback) : d;
+              const yy = String(src.getUTCFullYear()).slice(-2);
+              const mm = String(src.getUTCMonth() + 1).padStart(2, '0');
+              const dd = String(src.getUTCDate()).padStart(2, '0');
+              return `${yy}-${mm}-${dd}`;
+            }
+
             const fileMap = {
               'kk_centre': 'Data/kk_centre.json',
               'kk_others': 'Data/kk_others.json',
@@ -101,7 +111,8 @@ jobs:
               const route2 = parseField(issueBody, 'Route 2');
               const notes2 = parseField(issueBody, 'Notes 2');
               const remark = parseField(issueBody, 'Remark');
-              const dateCheck = parseField(issueBody, 'Date Observed');
+              const rawDate = parseField(issueBody, 'Date Observed');
+              const dateCheck = formatDate(rawDate, context.payload.issue.created_at);
 
               // Check for duplicate bus name if provided
               if (busName) {
@@ -167,7 +178,8 @@ jobs:
               // Update top-level fields
               const newColour = parseField(issueBody, 'New Colour');
               const newRemark = parseField(issueBody, 'New Remark');
-              const dateCheck = parseField(issueBody, 'Date Observed');
+              const rawDate = parseField(issueBody, 'Date Observed');
+              const dateCheck = formatDate(rawDate, context.payload.issue.created_at);
 
               if (newColour) entry.colour = newColour;
               if (dateCheck) entry.date_check = dateCheck;
