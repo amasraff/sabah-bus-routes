@@ -4,7 +4,8 @@
     "map": "",
     "buses": [
         {
-            "busNumber": "undef",
+            "uid": "",
+            "busName": "undef",
             "towards": [
                 {
                     "destination": "",
@@ -19,10 +20,11 @@
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": ""
         },
         {
-            "busNumber": "undef",
+            "uid": "",
+            "busName": "undef",
             "towards": [
                 {
                     "destination": "",
@@ -37,13 +39,14 @@
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": ""
         },
         {
-            "busNumber": "undef",
+            "uid": "",
+            "busName": "undef",
             "towards": [
                 {
-                    "destination": "Telipok",
+                    "destination": "",
                     "route": "",
                     "notes": "undef"
                 },
@@ -55,7 +58,7 @@
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": ""
         }
     ]
 }
