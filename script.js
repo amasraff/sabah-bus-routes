@@ -19,6 +19,9 @@ const mapExtLink    = document.getElementById('mapExternalLink');
 const mapNoEmbed    = document.getElementById('mapNoEmbed');
 const mapNoEmbedBtn = document.getElementById('mapNoEmbedBtn');
 const mapEmpty      = document.getElementById('mapEmpty');
+const mapCloseBtn   = document.getElementById('mapCloseBtn');
+
+mapCloseBtn.addEventListener('click', () => { deselect(); hideMap(); });
 
 // ─── Colour map ───────────────────────────────────────────────────────────────
 const COLOURS = {
@@ -99,9 +102,8 @@ function openMap(rawUrl, label) {
     mapNoEmbed.hidden = false;
   }
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
-    mapPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  // On mobile, leave room so the bottom sheet doesn't hide the end of the page
+  document.body.style.paddingBottom = isDesktop() ? '' : `${mapPanel.offsetHeight}px`;
 }
 
 function isDesktop() {
@@ -117,6 +119,7 @@ function hideMap() {
   mapExtLink.hidden = true;
   // On mobile, hide the whole panel; on desktop keep it visible with empty state
   if (!isDesktop()) mapPanel.hidden = true;
+  document.body.style.paddingBottom = '';
 }
 
 // ─── Status badge ─────────────────────────────────────────────────────────────
@@ -175,7 +178,8 @@ function renderRoutes(rawData) {
 
   // Auto-load the first region that has an area map
   const firstWithMap = regions.find(r => r.map);
-  if (firstWithMap) {
+  // Desktop only: on mobile the sheet would cover the list before any tap
+  if (firstWithMap && isDesktop()) {
     openMap(firstWithMap.map, `${firstWithMap.region} — Area overview`);
   }
 

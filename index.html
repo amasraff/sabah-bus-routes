@@ -181,6 +181,8 @@
       background: #e8edf2;
     }
 
+    #mapFrame[hidden] { display: none; }
+
     /* Shown when URL can't be embedded */
     #mapNoEmbed {
       padding: 28px 20px;
@@ -491,6 +493,39 @@
     #mapEmpty p { line-height: 1.6; max-width: 220px; }
     #mapEmpty[hidden] { display: none; }
 
+    #mapCloseBtn {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: none;
+      color: var(--muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* ── Mobile: map panel as bottom sheet ─────────── */
+    @media (max-width: 767px) {
+      #mapPanel {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 200;
+        max-height: 70vh;
+        border-top: 2px solid var(--blue-mid);
+        border-radius: 14px 14px 0 0;
+        box-shadow: 0 -6px 20px rgba(0,0,0,.18);
+        overflow: hidden;
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+
+      #mapLabel { flex: 1; min-width: 0; }
+      #mapFrame { flex: none; height: 40vh; }
+      #mapNoEmbed { padding: 14px 20px 18px; }
+      #mapNoEmbed svg { display: none; }
+    }
+
     /* ── Desktop layout ─────────────────────────────── */
     @media (min-width: 768px) {
       body {
@@ -520,6 +555,7 @@
       }
 
       .map-header { flex-shrink: 0; }
+      #mapCloseBtn { display: none; }
 
       #mapFrame {
         flex: 1;
@@ -578,6 +614,7 @@
           </svg>
           Open in Maps
         </a>
+        <button type="button" id="mapCloseBtn" aria-label="Close map">&times;</button>
       </div>
 
       <div id="mapEmpty">
