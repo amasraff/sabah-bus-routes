@@ -76,7 +76,7 @@
             "uid": "004",
             "busName": "6B",
             "operator": "",
-            "gpx": "Data/gpx/6b_kk_sepanggar.gpx",
+            "gpx": "Data/gpx/kk_local_buses/6b_kk_sepanggar.gpx",
             "towards": [
                 {
                     "destination": "Sepanggar",
