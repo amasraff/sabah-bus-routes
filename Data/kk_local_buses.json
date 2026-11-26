@@ -260,7 +260,7 @@
             "uid": "012",
             "busName": "12B",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/12b_kk_beverly_hills.gpx",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -334,7 +334,7 @@
                 {
                     "destination": "Penampang",
                     "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
-                    "gpx": "",
+                    "gpx": "Data/gpx/kk_local_buses/13a_kk_penampang.gpx",
                     "notes": "partial"
                 },
                 {
