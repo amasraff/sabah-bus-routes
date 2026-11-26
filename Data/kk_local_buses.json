@@ -237,7 +237,7 @@
             "uid": "011",
             "busName": "12A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/12_kk_beverly_hills.gpx",
             "towards": [
                 {
                     "destination": "Beverly Hills",
@@ -260,7 +260,7 @@
             "uid": "012",
             "busName": "12B",
             "operator": "",
-            "gpx": "Data/gpx/kk_local_buses/12b_kk_beverly_hills.gpx",
+            "gpx": "Data/gpx/kk_local_buses/12_kk_beverly_hills.gpx",
             "towards": [
                 {
                     "destination": "Beverly Hills",
