@@ -5,155 +5,187 @@
     "buses": [
         {
             "uid": "001",
-            "busName": "Beaufort",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Beaufort",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "002",
-            "busName": "Keningau",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Keningau",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "003",
-            "busName": "Kudat",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Kudat",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "004",
-            "busName": "Kota Marudu",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Kota Marudu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "005",
-            "busName": "Kota Belud",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Kota Belud",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "006",
-            "busName": "Ranau",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Ranau",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "007",
-            "busName": "TUNG MA",
+            "busName": "",
+            "operator": "TUNG MA",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tawau",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "008",
-            "busName": "SIDA",
+            "busName": "",
+            "operator": "SIDA",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tawau",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         }
     ]
 }

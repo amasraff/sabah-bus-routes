@@ -2,12 +2,16 @@
     "city": {
         "Kota Kinabalu": [
             {
-                "label": "KK - Centre",
-                "fileName": "Data/kk_centre.json"
+                "label": "KK Local Buses",
+                "fileName": "Data/kk_local_buses.json"
             },
             {
-                "label": "KK - Others",
-                "fileName": "Data/kk_others.json"
+                "label": "KK Local Link",
+                "fileName": "Data/kk_local_link.json"
+            },
+            {
+                "label": "KK BAS.MY",
+                "fileName": "Data/kk_basmy.json"
             },
             {
                 "label": "Intercity",

@@ -5,54 +5,20 @@
     "buses": [
         {
             "uid": "",
-            "busName": "undef",
+            "busName": "",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "",
                     "route": "",
-                    "notes": "undef"
-                }
-            ],
-            "colour": "",
-            "remark": "",
-            "date_check": ""
-        },
-        {
-            "uid": "",
-            "busName": "undef",
-            "towards": [
-                {
-                    "destination": "",
-                    "route": "",
-                    "notes": "undef"
-                },
-                {
-                    "destination": "",
-                    "route": "",
-                    "notes": "undef"
-                }
-            ],
-            "colour": "",
-            "remark": "",
-            "date_check": ""
-        },
-        {
-            "uid": "",
-            "busName": "undef",
-            "towards": [
-                {
-                    "destination": "",
-                    "route": "",
-                    "notes": "undef"
-                },
-                {
-                    "destination": "",
-                    "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],

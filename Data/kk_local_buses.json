@@ -1,520 +1,628 @@
 {
-    "region": "KK CENTRE",
-    "description": "List of all buses available that goes in and out of Kota Kinabalu primarily for daily commute.",
+    "region": "KK LOCAL BUSES",
+    "description": "White buses with region colours, running to and from KK city centre.",
     "map": "https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d9266.127758424962!2d116.05867405095992!3d5.95818733644768!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2smy!4v1732961016066!5m2!1sen!2smy",
     "buses": [
         {
             "uid": "001",
             "busName": "4A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Inanam",
                     "route": "https://maps.app.goo.gl/y6ovyN3ZPAmK6U5EA",
-                    "notes": "Complete"
+                    "gpx": "",
+                    "notes": "complete"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/2xZr8RRJvWQie57X7",
-                    "notes": "Complete"
+                    "gpx": "",
+                    "notes": "complete"
                 }
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "002",
             "busName": "4B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Inanam",
                     "route": "https://maps.app.goo.gl/y6ovyN3ZPAmK6U5EA",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/2xZr8RRJvWQie57X7",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 }
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "003",
             "busName": "5A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Menggatal",
                     "route": "https://maps.app.goo.gl/kxVf4TA5c4Je3PM18",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/yRGMdakcbVG31pZW6",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "004",
             "busName": "6B",
+            "operator": "",
+            "gpx": "Data/gpx/6b_kk_sepanggar.gpx",
             "towards": [
                 {
                     "destination": "Sepanggar",
                     "route": "https://maps.app.goo.gl/L1vjrHjVPSDcCMhc6",
-                    "notes": "Complete"
+                    "gpx": "",
+                    "notes": "complete"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/QwSdSGn576yt4pna7",
-                    "notes": "Complete"
+                    "gpx": "",
+                    "notes": "complete"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "005",
             "busName": "7C",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Telipok Ria",
                     "route": "https://maps.app.goo.gl/29NqnvgtQysixGV99",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/xZjziEG7qrFP7eKG8",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full no matter what",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "006",
             "busName": "8A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tuaran",
                     "route": "https://maps.app.goo.gl/EP1RtseTpAMkiqsw7",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/MoWYBUYPzmGSTG1UA",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "007",
             "busName": "8B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tuaran",
                     "route": "https://maps.app.goo.gl/EP1RtseTpAMkiqsw7",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/MoWYBUYPzmGSTG1UA",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "008",
             "busName": "10A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tamparuli",
                     "route": "https://maps.app.goo.gl/zP6HQSFQMkCf4sVf6",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/2BcNWVipFc6JkoJv6",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "BLUE",
             "remark": "wait until full",
-            "date_check": "24 Jan 2025"
+            "date_check": "2025-01-24"
         },
         {
             "uid": "009",
             "busName": "11A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Luyang",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "010",
             "busName": "11B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Luyang",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "011",
             "busName": "12A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Beverly Hills",
                     "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/kQjyKcpKzqyj1x8c9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "27 Jan 2025"
+            "date_check": "2025-01-27"
         },
         {
             "uid": "012",
             "busName": "12B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Beverly Hills",
                     "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/kQjyKcpKzqyj1x8c9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "27 Jan 2025"
+            "date_check": "2025-01-27"
         },
         {
             "uid": "013",
             "busName": "12A*",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Beverly Hills",
                     "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/kQjyKcpKzqyj1x8c9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "27 Jan 2025"
+            "date_check": "2025-01-27"
         },
         {
             "uid": "014",
             "busName": "12B*",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Beverly Hills",
                     "route": "https://maps.app.goo.gl/xAhDGcbTbjsqSJGp9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/kQjyKcpKzqyj1x8c9",
-                    "notes": "Partial"
+                    "gpx": "",
+                    "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "Only on weekdays, inform the driver to go to Plaza Heritage, no bus after 1700",
-            "date_check": "27 Jan 2025"
+            "date_check": "2025-01-27"
         },
         {
             "uid": "015",
             "busName": "13A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Penampang",
                     "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
+                    "gpx": "",
                     "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
+                    "gpx": "",
                     "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "016",
             "busName": "13B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Penampang",
                     "route": "https://maps.app.goo.gl/6ntpuH3Y1KsUawqY7",
+                    "gpx": "",
                     "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "https://maps.app.goo.gl/GwcBDb9KFT1QrNu4A",
+                    "gpx": "",
                     "notes": "partial"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "017",
             "busName": "14B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Kepayan Ridge",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "ORANGE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "018",
             "busName": "15A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Sembulan",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PURPLE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "019",
             "busName": "16A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Tanjung Aru",
                     "route": "https://maps.app.goo.gl/wBXVG6Pnd62o4s667",
+                    "gpx": "",
                     "notes": "partial"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PURPLE",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "020",
             "busName": "17A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "KG. Ganang",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "021",
             "busName": "18A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Putatan",
                     "route": "https://maps.app.goo.gl/ZM83iP4AvFAnWXo36",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "022",
             "busName": "18C",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Putatan",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "023",
             "busName": "19A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Lok Kawi",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "024",
             "busName": "19C",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Lok Kawi",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "025",
             "busName": "20A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Kinarut",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "026",
             "busName": "21A",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Papar",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         },
         {
             "uid": "027",
             "busName": "21B",
+            "operator": "",
+            "gpx": "",
             "towards": [
                 {
                     "destination": "Papar",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 },
                 {
                     "destination": "Kota Kinabalu",
                     "route": "",
+                    "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "RED",
             "remark": "",
-            "date_check": "11-Nov-24"
+            "date_check": "2024-11-11"
         }
     ]
 }
