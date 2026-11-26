@@ -172,7 +172,13 @@ function openMap({ route, gpx, label }) {
   // On mobile, leave room so the bottom sheet doesn't hide the end of the page
   if (!isDesktop()) {
     map?.invalidateSize();
-    document.body.style.paddingBottom = `${mapPanel.offsetHeight}px`;
+    routeList.style.paddingBottom = `${mapPanel.offsetHeight}px`;
+    // Keep the tapped row visible above the bottom sheet
+    const row = state.selectedDir?.row;
+    if (row) {
+      const hidden = row.getBoundingClientRect().bottom - mapPanel.getBoundingClientRect().top;
+      if (hidden > 0) routeList.scrollTop += hidden + 8;
+    }
   }
 }
 
@@ -183,7 +189,7 @@ function hideMap() {
   showMessage('');
   mapActions.hidden = true;
   mapLabel.textContent = 'Kota Kinabalu';
-  document.body.style.paddingBottom = '';
+  routeList.style.paddingBottom = '';
   mapPanel.hidden = !isDesktop();
   if (isDesktop() && ensureMap()) map.setView(KK_CENTRE, 12);
 }
@@ -240,8 +246,6 @@ function renderRoutes(rawData) {
   state.selectedDir = null;
   hideMap();
 
-  // Auto-load the first region that has an area map
-  const firstWithMap = regions.find(r => r.map);
   for (const region of regions) {
     const group = document.createElement('div');
     group.className = 'region-group';
@@ -337,6 +341,8 @@ function buildBusCard(bus) {
     row.innerHTML = `
       <span class="dir-arrow">→</span>
       <span class="dir-dest">${escHtml(dir.destination || 'Unknown')}</span>
+      ${gpx ? '<span class="link-badge link-gpx">GPX</span>' : ''}
+      ${route ? '<span class="link-badge link-gmap">GMAP</span>' : ''}
       <span class="bus-status ${cls}">${label}</span>
     `;
 
