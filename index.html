@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Community-maintained public bus route guide for Kota Kinabalu, Sabah. Find bus routes, destinations, and maps.">
   <title>Sabah Bus Routes</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -152,73 +154,43 @@
       white-space: nowrap;
     }
 
-    #mapExternalLink {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--blue-mid);
-      text-decoration: none;
-      white-space: nowrap;
-      flex-shrink: 0;
-      padding: 4px 8px;
-      border-radius: 5px;
-      border: 1px solid var(--blue-light);
-      background: var(--blue-light);
-      transition: background .12s;
-    }
-
-    #mapExternalLink:hover { background: #bfdbfe; }
-    #mapExternalLink[hidden] { display: none; }
-
-    #mapFrame {
-      width: 100%;
+    #map {
       flex: 1;
       min-height: 0;
-      border: none;
-      display: block;
       background: #e8edf2;
+      position: relative;
+      z-index: 0;          /* keep Leaflet layers under the page header */
     }
 
-    #mapFrame[hidden] { display: none; }
-
-    /* Shown when URL can't be embedded */
-    #mapNoEmbed {
-      padding: 28px 20px;
-      text-align: center;
+    #mapMessage {
+      padding: 8px 14px;
+      font-size: 0.8rem;
       color: var(--muted);
-      font-size: 0.85rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--surface-2);
+      text-align: center;
     }
 
-    #mapNoEmbed[hidden] { display: none; }
+    .map-actions {
+      display: flex;
+      gap: 8px;
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+    }
 
-    #mapNoEmbed svg { opacity: .4; }
-
-    #mapNoEmbedBtn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 9px 18px;
-      background: var(--blue);
-      color: white;
-      border: none;
+    .map-action {
+      flex: 1;
+      padding: 9px 12px;
       border-radius: var(--radius);
+      background: var(--blue);
+      color: #fff;
       font-size: 0.85rem;
       font-weight: 600;
-      cursor: pointer;
+      text-align: center;
       text-decoration: none;
-      transition: background .12s;
     }
 
-    #mapNoEmbedBtn:hover { background: var(--blue-mid); }
+    .map-action:hover { background: var(--blue-mid); }
+
+    #mapMessage[hidden], .map-actions[hidden], .map-action[hidden] { display: none; }
 
     /* ── Route list ─────────────────────────────────── */
     #routeList {
@@ -298,22 +270,6 @@
       margin-top: 2px;
       line-height: 1.4;
     }
-
-    .region-map-btn {
-      flex-shrink: 0;
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: var(--muted);
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 4px 8px;
-      cursor: pointer;
-      transition: all .12s;
-      white-space: nowrap;
-    }
-
-    .region-map-btn:hover { border-color: var(--blue-mid); color: var(--blue-mid); }
 
     /* ── Bus cards ──────────────────────────────────── */
     .bus-grid {
@@ -474,25 +430,6 @@
 
     .footer-links a:hover { text-decoration: underline; }
 
-    /* ── Empty state (desktop default) ─────────────── */
-    #mapEmpty {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      color: var(--muted);
-      font-size: 0.86rem;
-      text-align: center;
-      padding: 40px 24px;
-      background: var(--surface-2);
-    }
-
-    #mapEmpty svg { opacity: .25; }
-    #mapEmpty p { line-height: 1.6; max-width: 220px; }
-    #mapEmpty[hidden] { display: none; }
-
     #mapCloseBtn {
       flex-shrink: 0;
       width: 36px;
@@ -521,9 +458,7 @@
       }
 
       #mapLabel { flex: 1; min-width: 0; }
-      #mapFrame { flex: none; height: 40vh; }
-      #mapNoEmbed { padding: 14px 20px 18px; }
-      #mapNoEmbed svg { display: none; }
+      #map { flex: none; height: 40vh; }
     }
 
     /* ── Desktop layout ─────────────────────────────── */
@@ -557,13 +492,6 @@
       .map-header { flex-shrink: 0; }
       #mapCloseBtn { display: none; }
 
-      #mapFrame {
-        flex: 1;
-        height: 0;
-      }
-
-      #mapNoEmbed { flex: 1; }
-      #mapEmpty   { flex: 1; }
     }
 
     @media (min-width: 1100px) {
@@ -607,41 +535,15 @@
     <aside id="mapPanel" hidden aria-label="Route map">
       <div class="map-header">
         <span id="mapLabel">Map</span>
-        <a id="mapExternalLink" href="#" target="_blank" rel="noopener noreferrer" hidden>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          Open in Maps
-        </a>
         <button type="button" id="mapCloseBtn" aria-label="Close map">&times;</button>
       </div>
 
-      <div id="mapEmpty">
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 11l19-9-9 19-2-8-8-2z"/>
-        </svg>
-        <p>Select a route from the list to view it on the map.</p>
-      </div>
+      <div id="mapMessage" role="status" hidden></div>
+      <div id="map"></div>
 
-      <iframe
-        id="mapFrame"
-        title="Bus route map"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        hidden
-      ></iframe>
-
-      <div id="mapNoEmbed" hidden>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        <p>This route can't be previewed here.</p>
-        <a id="mapNoEmbedBtn" href="#" target="_blank" rel="noopener noreferrer">
-          Open route in Google Maps ↗
-        </a>
+      <div id="mapActions" class="map-actions" hidden>
+        <a id="mapGoogleLink" class="map-action" href="#" target="_blank" rel="noopener noreferrer" hidden>Google Maps ↗</a>
+        <a id="mapGpxLink" class="map-action" href="#" download hidden>Download GPX</a>
       </div>
     </aside>
 
@@ -662,6 +564,8 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>

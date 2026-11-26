@@ -13,12 +13,11 @@ const cityNav       = document.getElementById('cityNav');
 const regionNav     = document.getElementById('regionNav');
 const routeList     = document.getElementById('routeList');
 const mapPanel      = document.getElementById('mapPanel');
-const mapFrame      = document.getElementById('mapFrame');
 const mapLabel      = document.getElementById('mapLabel');
-const mapExtLink    = document.getElementById('mapExternalLink');
-const mapNoEmbed    = document.getElementById('mapNoEmbed');
-const mapNoEmbedBtn = document.getElementById('mapNoEmbedBtn');
-const mapEmpty      = document.getElementById('mapEmpty');
+const mapMessage    = document.getElementById('mapMessage');
+const mapActions    = document.getElementById('mapActions');
+const mapGoogleLink = document.getElementById('mapGoogleLink');
+const mapGpxLink    = document.getElementById('mapGpxLink');
 const mapCloseBtn   = document.getElementById('mapCloseBtn');
 
 mapCloseBtn.addEventListener('click', () => { deselect(); hideMap(); });
@@ -63,63 +62,130 @@ function showPlaceholder(msg) {
 }
 
 // ─── Map helpers ──────────────────────────────────────────────────────────────
-function resolveMapUrl(url) {
-  if (!url) return { embedUrl: null, externalUrl: null };
-  const t = url.trim();
-  if (['undef','partial','incomplete'].includes(t.toLowerCase())) {
-    return { embedUrl: null, externalUrl: null };
-  }
-  if (t.includes('/maps/embed')) return { embedUrl: t, externalUrl: t };
-  if (t.includes('google.com/maps')) {
-    const sep = t.includes('?') ? '&' : '?';
-    return { embedUrl: t + sep + 'output=embed', externalUrl: t };
-  }
-  // Short links (maps.app.goo.gl, goo.gl) cannot be embedded
-  return { embedUrl: null, externalUrl: t };
-}
-
-function openMap(rawUrl, label) {
-  const { embedUrl, externalUrl } = resolveMapUrl(rawUrl);
-  mapPanel.hidden = false;
-  mapEmpty.hidden = true;
-  mapLabel.textContent = label;
-
-  if (externalUrl) {
-    mapExtLink.href = externalUrl;
-    mapExtLink.hidden = false;
-    mapNoEmbedBtn.href = externalUrl;
-  } else {
-    mapExtLink.hidden = true;
-  }
-
-  if (embedUrl) {
-    mapFrame.src = embedUrl;
-    mapFrame.hidden = false;
-    mapNoEmbed.hidden = true;
-  } else {
-    mapFrame.src = 'about:blank';
-    mapFrame.hidden = true;
-    mapNoEmbed.hidden = false;
-  }
-
-  // On mobile, leave room so the bottom sheet doesn't hide the end of the page
-  document.body.style.paddingBottom = isDesktop() ? '' : `${mapPanel.offsetHeight}px`;
-}
+const KK_CENTRE = [5.975, 116.073];
+let map = null;
+let routeLayer = null;
+let mapRequest = 0;
 
 function isDesktop() {
   return window.matchMedia('(min-width: 768px)').matches;
 }
 
+// Only accept web links for Google Maps and repo files for GPX
+function googleUrl(url) {
+  const t = (url || '').trim();
+  return /^https:\/\//i.test(t) ? t : null;
+}
+
+function gpxPath(path) {
+  const t = (path || '').trim();
+  return /^Data\/gpx\/(?!.*\.\.).+\.gpx$/i.test(t) ? t : null;
+}
+
+// Create the map the first time it is shown, then keep reusing it
+function ensureMap() {
+  if (!window.L) return false;
+  if (!map) {
+    map = L.map('map').setView(KK_CENTRE, 12);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+  }
+  map.invalidateSize();
+  return true;
+}
+
+function clearRoute() {
+  if (routeLayer) {
+    routeLayer.remove();
+    routeLayer = null;
+  }
+}
+
+function showMessage(msg) {
+  mapMessage.textContent = msg;
+  mapMessage.hidden = !msg;
+}
+
+// Returns a list of lines, each a list of [lat, lon]
+function parseGpx(text) {
+  const xml = new DOMParser().parseFromString(text, 'application/xml');
+  if (xml.getElementsByTagName('parsererror').length) throw new Error('Invalid GPX');
+
+  const all = (node, name) => [...node.getElementsByTagNameNS('*', name)];
+  const toPoint = el => [parseFloat(el.getAttribute('lat')), parseFloat(el.getAttribute('lon'))];
+  const valid = line => line.filter(p => p.every(Number.isFinite));
+
+  // Tracks: one line per segment
+  const lines = all(xml, 'trkseg').map(seg => valid(all(seg, 'trkpt').map(toPoint)));
+
+  // Routes: each point, followed by any Garmin in-between points (<gpxx:rpt>)
+  for (const rte of all(xml, 'rte')) {
+    lines.push(valid(all(rte, 'rtept').flatMap(pt => [pt, ...all(pt, 'rpt')]).map(toPoint)));
+  }
+
+  return lines.filter(line => line.length > 1);
+}
+
+async function drawGpx(path, request) {
+  showMessage('Loading route…');
+  try {
+    const res = await fetchWithTimeout(path);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const lines = parseGpx(await res.text());
+    if (request !== mapRequest) return;      // another route was tapped meanwhile
+    if (!lines.length) throw new Error('No route points');
+
+    routeLayer = L.featureGroup(lines.map(l => L.polyline(l, { color: '#2563a8', weight: 5 })));
+    routeLayer.addTo(map);
+    map.fitBounds(routeLayer.getBounds(), { padding: [20, 20] });
+    showMessage('');
+  } catch (err) {
+    console.error('[sabah-bus] GPX failed:', err);
+    if (request === mapRequest) showMessage('Could not load the route preview.');
+  }
+}
+
+function openMap({ route, gpx, label }) {
+  const request = ++mapRequest;
+  mapPanel.hidden = false;
+  mapLabel.textContent = label;
+
+  mapGoogleLink.hidden = !route;
+  if (route) mapGoogleLink.href = route;
+  mapGpxLink.hidden = !gpx;
+  if (gpx) mapGpxLink.href = gpx;
+  mapActions.hidden = !route && !gpx;
+
+  const hasMap = ensureMap();
+  clearRoute();
+  if (!hasMap) {
+    showMessage('The map could not be loaded.');
+  } else if (gpx) {
+    drawGpx(gpx, request);
+  } else {
+    map.setView(KK_CENTRE, 12);
+    showMessage('Map preview not available yet.');
+  }
+
+  // On mobile, leave room so the bottom sheet doesn't hide the end of the page
+  if (!isDesktop()) {
+    map?.invalidateSize();
+    document.body.style.paddingBottom = `${mapPanel.offsetHeight}px`;
+  }
+}
+
+// Desktop keeps a general KK view; mobile hides the panel
 function hideMap() {
-  mapFrame.src = 'about:blank';
-  mapFrame.hidden = true;
-  mapNoEmbed.hidden = true;
-  mapEmpty.hidden = false;
-  mapLabel.textContent = 'Map';
-  mapExtLink.hidden = true;
-  // On mobile, hide the whole panel; on desktop keep it visible with empty state
-  if (!isDesktop()) mapPanel.hidden = true;
+  mapRequest++;
+  clearRoute();
+  showMessage('');
+  mapActions.hidden = true;
+  mapLabel.textContent = 'Kota Kinabalu';
   document.body.style.paddingBottom = '';
+  mapPanel.hidden = !isDesktop();
+  if (isDesktop() && ensureMap()) map.setView(KK_CENTRE, 12);
 }
 
 // ─── Status badge ─────────────────────────────────────────────────────────────
@@ -173,16 +239,9 @@ function renderRoutes(rawData) {
   routeList.innerHTML = '';
   state.selectedDir = null;
   hideMap();
-  // On desktop always show the panel (with empty state)
-  if (isDesktop()) mapPanel.hidden = false;
 
   // Auto-load the first region that has an area map
   const firstWithMap = regions.find(r => r.map);
-  // Desktop only: on mobile the sheet would cover the list before any tap
-  if (firstWithMap && isDesktop()) {
-    openMap(firstWithMap.map, `${firstWithMap.region} — Area overview`);
-  }
-
   for (const region of regions) {
     const group = document.createElement('div');
     group.className = 'region-group';
@@ -196,14 +255,7 @@ function renderRoutes(rawData) {
         <div class="region-name">${escHtml(region.region)}</div>
         ${region.description ? `<div class="region-desc">${escHtml(region.description)}</div>` : ''}
       </div>
-      ${region.map ? `<button class="region-map-btn">Area map</button>` : ''}
     `;
-    if (region.map) {
-      header.querySelector('.region-map-btn').addEventListener('click', () => {
-        deselect();
-        openMap(region.map, `${region.region} — Area overview`);
-      });
-    }
     group.appendChild(header);
 
     // Bus cards
@@ -226,10 +278,23 @@ function renderRoutes(rawData) {
 
 function buildBusCard(bus) {
   const colour  = resolveColour(bus.colour || bus.color);
-  const busName = (bus.busName || '?').replace(/^\[|\]$/g, '');
+  const clean   = v => {
+    const t = (v || '').trim().replace(/^\[|\]$/g, '');
+    return t.toLowerCase() === 'undef' ? '' : t;
+  };
+  const busName  = clean(bus.busName);
+  const operator = clean(bus.operator);
+  const badge    = busName || operator;      // no badge when both are empty
   const remark  = bus.remark || '';
   const towards = Array.isArray(bus.towards) ? bus.towards : [];
-  const hasAny  = towards.some(t => t.route && t.route !== 'undef');
+
+  // Per-direction GPX files take priority over the bus-level (round trip) file
+  const perDirection = towards.some(t => gpxPath(t.gpx));
+  const linksFor = dir => ({
+    route: googleUrl(dir.route),
+    gpx:   gpxPath(perDirection ? dir.gpx : bus.gpx),
+  });
+  const hasAny  = towards.some(t => { const l = linksFor(t); return l.route || l.gpx; });
 
   const card = document.createElement('div');
   card.className = 'bus-card' + (hasAny ? '' : ' no-route');
@@ -239,7 +304,7 @@ function buildBusCard(bus) {
   top.className = 'bus-card-top';
   top.innerHTML = `
     <div class="bus-badge-wrap">
-      <span class="bus-badge" style="background:${colour}">${escHtml(busName)}</span>
+      ${badge ? `<span class="bus-badge" style="background:${colour}">${escHtml(badge)}</span>` : ''}
       ${bus.uid ? `<span class="bus-uid">UID: ${escHtml(bus.uid)}</span>` : ''}
     </div>
     ${remark ? `<span class="bus-remark">${escHtml(remark)}</span>` : ''}
@@ -259,7 +324,8 @@ function buildBusCard(bus) {
   dirList.className = 'bus-dir-list';
 
   for (const dir of towards) {
-    const hasRoute = dir.route && dir.route !== 'undef';
+    const { route, gpx } = linksFor(dir);
+    const hasRoute = Boolean(route || gpx);
     const { cls, label } = statusInfo(dir.notes);
 
     const row = document.createElement('div');
@@ -279,7 +345,7 @@ function buildBusCard(bus) {
         deselect();
         row.classList.add('selected');
         state.selectedDir = { card, row };
-        openMap(dir.route, `[${busName}] → ${dir.destination}`);
+        openMap({ route, gpx, label: `${badge ? `[${badge}] ` : ''}→ ${dir.destination}` });
       };
       row.addEventListener('click', activate);
       row.addEventListener('keydown', e => {
