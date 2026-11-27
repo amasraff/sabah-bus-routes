@@ -68,6 +68,8 @@
     for (const group of groups) {
       for (const word of group) {
         if (query.includes(word)) group.forEach(other => out.add(query.replace(word, other)));
+        // a half-typed name ("queen eliz") also finds the other spellings
+        else if (query.length >= 4 && word.startsWith(query)) group.forEach(other => out.add(other));
       }
     }
     return [...out];
@@ -152,12 +154,20 @@
     input.setAttribute('aria-expanded', 'true');
   }
 
+  // Used by the place tags on bus cards
+  window.searchFor = async text => {
+    input.value = text;
+    await run();
+    // focus a result, not the input, so phones don't open the keyboard
+    results.querySelector('.search-result')?.focus();
+  };
+
   input.addEventListener('input', run);
   input.addEventListener('focus', run);
   input.addEventListener('keydown', e => {
-    if (e.key === 'Escape') close();
     if (e.key === 'Enter' && !results.hidden) results.querySelector('.search-result')?.click();
   });
+  box.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   document.addEventListener('pointerdown', e => { if (!box.contains(e.target)) close(); });
   box.addEventListener('focusout', e => {
     if (e.relatedTarget && !box.contains(e.relatedTarget)) close();

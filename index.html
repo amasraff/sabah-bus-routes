@@ -354,6 +354,44 @@
     .bus-card.no-route { opacity: .6; }
     .bus-card.no-route:hover { border-color: var(--border); box-shadow: none; }
 
+    /* Places of interest (collapsed tags) */
+    .places { border-top: 1px solid var(--border); }
+
+    .places-toggle {
+      width: 100%;
+      padding: 8px 12px;
+      border: 0;
+      background: none;
+      color: var(--blue-mid);
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .places-toggle::before { content: '▸ '; }
+    .places-toggle[aria-expanded="true"]::before { content: '▾ '; }
+    .places-panel { padding: 0 12px 10px; }
+    .places-panel[hidden] { display: none; }
+    .places-note { font-size: 0.7rem; color: var(--muted); margin-bottom: 6px; }
+    .places-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .place-chip {
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface-2);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.76rem;
+      cursor: pointer;
+      overflow-wrap: anywhere;
+      text-align: left;
+    }
+
+    .place-chip:hover { background: var(--blue-light); }
+
     /* Badge + remark header row */
     .bus-card-top {
       display: flex;

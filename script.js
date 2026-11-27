@@ -366,7 +366,58 @@ function buildBusCard(bus) {
   }
 
   card.appendChild(dirList);
+  const places = buildPlaces(bus.tags);
+  if (places) card.appendChild(places);
   return card;
+}
+
+// ─── Places of interest ───────────────────────────────────────────────────────
+let placesCount = 0;
+
+// A collapsed list of the bus's tags; null when it has none
+function buildPlaces(tags) {
+  const seen = new Set();
+  const names = (Array.isArray(tags) ? tags : [])
+    .map(t => String(t || '').trim())
+    .filter(t => t && !seen.has(t.toLowerCase()) && seen.add(t.toLowerCase()));
+  if (!names.length) return null;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'places';
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'places-toggle';
+  toggle.textContent = `Places of interest (${names.length})`;
+
+  const panel = document.createElement('div');
+  panel.className = 'places-panel';
+  panel.id = `places-${++placesCount}`;
+  panel.hidden = true;
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-controls', panel.id);
+
+  panel.innerHTML = '<p class="places-note">Places along or near the route; not confirmed bus stops.</p>';
+  const chips = document.createElement('div');
+  chips.className = 'places-chips';
+  for (const name of names) {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'place-chip';
+    chip.textContent = name;
+    chip.title = `Search for ${name}`;
+    chip.addEventListener('click', () => window.searchFor?.(name));
+    chips.appendChild(chip);
+  }
+  panel.appendChild(chips);
+
+  toggle.addEventListener('click', () => {
+    panel.hidden = !panel.hidden;
+    toggle.setAttribute('aria-expanded', String(!panel.hidden));
+  });
+
+  wrap.append(toggle, panel);
+  return wrap;
 }
 
 function deselect() {
