@@ -10,14 +10,22 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Likas, UMS, 1 Borneo",
+                    "destination": [
+                        "KK Sentral",
+                        "Likas",
+                        "Menara Kinabalu",
+                        "UMS",
+                        "1 Borneo",
+                        "Luyang Plaza",
+                        "Foh Sang"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Likas, Menara Kinabalu, UMS, 1 Borneo, Luyang, Foh Sang · every 18 min · 5:30am–10:18pm · adult fare up to RM3.90",
+            "remark": "Loop · Every 18 min · 5:30am–10:18pm · adult fare up to RM3.90",
             "date_check": "2026-11-27"
         },
         {
@@ -27,14 +35,24 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "City Mall, UMS, 1 Borneo",
+                    "destination": [
+                        "KK Sentral",
+                        "Foh Sang",
+                        "City Mall",
+                        "Likas Plaza",
+                        "Menara Kinabalu",
+                        "UMS",
+                        "1 Borneo",
+                        "Old Port",
+                        "Holiday Inn"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Foh Sang, City Mall, Likas, UMS, 1 Borneo, Old Port · every 18 min · 5:35am–10:23pm · adult fare up to RM4.00",
+            "remark": "Loop · Every 18 min · 5:35am–10:23pm · adult fare up to RM4.00",
             "date_check": "2026-11-27"
         },
         {
@@ -44,14 +62,22 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Inanam, UMS, 1 Borneo",
+                    "destination": [
+                        "Manggatal Terminal",
+                        "Inanam",
+                        "KK Sentral",
+                        "SICC",
+                        "UMS",
+                        "1 Borneo",
+                        "Klinik Kesihatan Manggatal"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from Manggatal Terminal via Inanam, KK Sentral, SICC, UMS, 1 Borneo · every 22 min · 5:40am–10:32pm · adult fare up to RM4.50",
+            "remark": "Loop · Every 22 min · 5:40am–10:32pm · adult fare up to RM4.50",
             "date_check": "2026-11-27"
         },
         {
@@ -61,14 +87,24 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Sepanggar, 1 Borneo",
+                    "destination": [
+                        "Manggatal Terminal",
+                        "Pekan Manggatal",
+                        "Sepanggar",
+                        "1 Borneo",
+                        "Menara Kinabalu",
+                        "Old Port",
+                        "KK Sentral",
+                        "Likas",
+                        "Inanam"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from Manggatal Terminal via Sepanggar, 1 Borneo, Old Port, KK Sentral, Likas, Inanam · every 22 min · 5:40am–10:32pm · adult fare up to RM4.60",
+            "remark": "Loop · Every 22 min · 5:40am–10:32pm · adult fare up to RM4.60",
             "date_check": "2026-11-27"
         },
         {
@@ -78,14 +114,24 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Likas, KPJ, Damai",
+                    "destination": [
+                        "KK Sentral",
+                        "Jesselton Point",
+                        "SICC",
+                        "Likas Stadium",
+                        "KPJ",
+                        "Hospital QE2",
+                        "Damai",
+                        "Lido",
+                        "Hospital QE1"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Jesselton Point, SICC, Likas, KPJ, Damai, Lido, QE1 · every 15 min · 6:00am–11:00pm · adult fare up to RM2.40",
+            "remark": "Loop · Every 15 min · 6:00am–11:00pm · adult fare up to RM2.40",
             "date_check": "2026-11-27"
         },
         {
@@ -95,14 +141,24 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Sembulan, Luyang, KPJ",
+                    "destination": [
+                        "KK Sentral",
+                        "Sembulan",
+                        "Hospital QE1",
+                        "Sabah Museum",
+                        "Luyang",
+                        "KPJ",
+                        "Damai",
+                        "Likas Sports Complex",
+                        "Old Port"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Sembulan, QE1, Sabah Museum, Luyang, KPJ, Damai, Likas · every 15 min · 6:05am–11:05pm · adult fare up to RM2.80",
+            "remark": "Loop · Every 15 min · 6:05am–11:05pm · adult fare up to RM2.80",
             "date_check": "2026-11-27"
         },
         {
@@ -112,14 +168,23 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Airport via Aeropod",
+                    "destination": [
+                        "KK Sentral",
+                        "Sutera Avenue",
+                        "Aeropod",
+                        "IPK Sabah",
+                        "Airport (KKIA)",
+                        "Kepayan",
+                        "Lido",
+                        "Hospital QE1"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Sutera Avenue, Aeropod, Airport (KKIA), Kepayan, Lido, QE1 · every 15 min · 5:45am–10:45pm · adult fare up to RM2.70",
+            "remark": "Loop · Every 15 min · 5:45am–10:45pm · adult fare up to RM2.70",
             "date_check": "2026-11-27"
         },
         {
@@ -129,14 +194,24 @@
             "gpx": "",
             "towards": [
                 {
-                    "destination": "Airport via Sembulan",
+                    "destination": [
+                        "KK Sentral",
+                        "Karamunsing",
+                        "Sembulan",
+                        "Hospital QE1",
+                        "Sabah Museum",
+                        "Lido Avenue",
+                        "Airport (KKIA)",
+                        "Sutera Harbour",
+                        "Imago"
+                    ],
                     "route": "",
                     "gpx": "",
                     "notes": "undef"
                 }
             ],
             "colour": "PINK",
-            "remark": "Loop from KK Sentral via Sembulan, Lido, Airport (KKIA), Sutera Harbour, Imago · every 15 min · 5:50am–10:50pm · adult fare up to RM2.70",
+            "remark": "Loop · Every 15 min · 5:50am–10:50pm · adult fare up to RM2.70",
             "date_check": "2026-11-27"
         }
     ]

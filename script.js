@@ -328,6 +328,9 @@ function buildBusCard(bus) {
   dirList.className = 'bus-dir-list';
 
   for (const dir of towards) {
+    // destination is one name, or a list of places (loop: first entry is the start)
+    const isList = Array.isArray(dir.destination);
+    const destination = isList ? dir.destination.join(' · ') : dir.destination;
     const { route, gpx } = linksFor(dir);
     const hasRoute = Boolean(route || gpx);
     const { cls, label } = statusInfo(dir.notes);
@@ -340,7 +343,7 @@ function buildBusCard(bus) {
     }
     row.innerHTML = `
       <span class="dir-arrow">→</span>
-      <span class="dir-dest">${escHtml(dir.destination || 'Unknown')}</span>
+      <span class="dir-dest${isList ? ' dir-dest-list' : ''}">${escHtml(destination || 'Unknown')}</span>
       ${gpx ? '<span class="link-badge link-gpx">GPX</span>' : ''}
       ${route ? '<span class="link-badge link-gmap">GMAP</span>' : ''}
       <span class="bus-status ${cls}">${label}</span>
@@ -351,7 +354,7 @@ function buildBusCard(bus) {
         deselect();
         row.classList.add('selected');
         state.selectedDir = { card, row };
-        openMap({ route, gpx, label: `${badge ? `[${badge}] ` : ''}→ ${dir.destination}` });
+        openMap({ route, gpx, label: `${badge ? `[${badge}] ` : ''}→ ${destination}` });
       };
       row.addEventListener('click', activate);
       row.addEventListener('keydown', e => {
