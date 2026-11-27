@@ -78,6 +78,62 @@
       margin-top: 1px;
     }
 
+    /* ── Search ────────────────────────────────────── */
+    .search-box { position: relative; flex: 1; max-width: 380px; margin-left: 20px; }
+
+    #searchInput {
+      width: 100%;
+      padding: 7px 14px;
+      border: 0;
+      border-radius: 20px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.86rem;
+    }
+
+    #searchInput:focus-visible { outline: 2px solid #fde68a; outline-offset: 1px; }
+
+    #searchResults {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      max-height: 60vh;
+      max-height: 60dvh;
+      overflow-y: auto;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+    }
+
+    #searchResults[hidden] { display: none; }
+
+    .search-result {
+      display: block;
+      width: 100%;
+      padding: 8px 12px;
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .search-result:last-child { border-bottom: 0; }
+    .search-result:hover, .search-result:focus-visible { background: var(--blue-light); }
+
+    .search-top, .search-dir { display: flex; align-items: center; gap: 8px; }
+    .search-region { font-size: 0.72rem; font-weight: 700; color: var(--muted); }
+    .search-dir { justify-content: space-between; margin-top: 4px; font-size: 0.82rem; }
+    .site-header .search-note { padding: 10px 12px; margin: 0; font-size: 0.82rem; opacity: 1; color: var(--muted); }
+
+    .bus-card.search-hit { outline: 3px solid var(--blue-mid); opacity: 1; }
+
     /* ── Nav strips ─────────────────────────────────── */
     .nav-strip {
       background: var(--surface);
@@ -468,6 +524,11 @@
 
     /* ── Mobile: map panel as bottom sheet ─────────── */
     @media (max-width: 767px) {
+      /* search sits on its own line under the title */
+      .site-header { flex-wrap: wrap; row-gap: 8px; }
+      .search-box { flex-basis: 100%; max-width: none; margin-left: 0; }
+      #searchInput { font-size: 16px; }   /* stops iOS zooming in on focus */
+
       #mapPanel {
         position: fixed;
         left: 0;
@@ -537,6 +598,12 @@
       <h1>Sabah Bus Routes</h1>
       <p>Community-maintained route guide for Kota Kinabalu</p>
     </div>
+    <div id="searchBox" class="search-box" role="search">
+      <input id="searchInput" type="search" placeholder="Search a place or bus number"
+             aria-label="Search a place or bus number" aria-controls="searchResults"
+             aria-expanded="false" autocomplete="off" enterkeyhint="search">
+      <div id="searchResults" hidden></div>
+    </div>
   </header>
 
   <nav id="cityNav" class="nav-strip" aria-label="City" hidden>
@@ -591,5 +658,6 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <script src="script.js" defer></script>
+  <script src="search.js" defer></script>
 </body>
 </html>

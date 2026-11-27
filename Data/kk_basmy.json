@@ -24,6 +24,10 @@
                     "notes": "undef"
                 }
             ],
+            "tags": [
+                "Universiti Malaysia Sabah",
+                "1B"
+            ],
             "colour": "PINK",
             "remark": "Loop · Every 18 min · 5:30am–10:18pm · adult fare up to RM3.90",
             "date_check": "2026-11-27"
@@ -51,6 +55,10 @@
                     "notes": "undef"
                 }
             ],
+            "tags": [
+                "Universiti Malaysia Sabah",
+                "1B"
+            ],
             "colour": "PINK",
             "remark": "Loop · Every 18 min · 5:35am–10:23pm · adult fare up to RM4.00",
             "date_check": "2026-11-27"
@@ -75,6 +83,10 @@
                     "gpx": "",
                     "notes": "undef"
                 }
+            ],
+            "tags": [
+                "Universiti Malaysia Sabah",
+                "1B"
             ],
             "colour": "PINK",
             "remark": "Loop · Every 22 min · 5:40am–10:32pm · adult fare up to RM4.50",
@@ -104,6 +116,9 @@
                     "notes": "undef"
                 }
             ],
+            "tags": [
+                "1B"
+            ],
             "colour": "PINK",
             "remark": "Loop · Every 22 min · 5:40am–10:32pm · adult fare up to RM4.60",
             "date_check": "2026-11-27"
@@ -130,6 +145,9 @@
                     "gpx": "",
                     "notes": "undef"
                 }
+            ],
+            "tags": [
+                "Queen Elizabeth Hospital"
             ],
             "colour": "PINK",
             "remark": "Loop · Every 15 min · 6:00am–11:00pm · adult fare up to RM2.40",
@@ -159,6 +177,9 @@
                     "notes": "undef"
                 }
             ],
+            "tags": [
+                "Queen Elizabeth Hospital"
+            ],
             "colour": "PINK",
             "remark": "Loop · Every 15 min · 6:05am–11:05pm · adult fare up to RM2.80",
             "date_check": "2026-11-27"
@@ -184,6 +205,9 @@
                     "gpx": "",
                     "notes": "undef"
                 }
+            ],
+            "tags": [
+                "Queen Elizabeth Hospital"
             ],
             "colour": "PINK",
             "remark": "Loop · Every 15 min · 5:45am–10:45pm · adult fare up to RM2.70",
@@ -211,6 +235,9 @@
                     "gpx": "",
                     "notes": "undef"
                 }
+            ],
+            "tags": [
+                "Queen Elizabeth Hospital"
             ],
             "colour": "PINK",
             "remark": "Loop · Every 15 min · 5:50am–10:50pm · adult fare up to RM2.70",
