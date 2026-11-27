@@ -7,7 +7,7 @@
             "uid": "001",
             "busName": "4A",
             "operator": "",
-            "gpx": "Data/gpx/kk_local_buses/4a_kk_inanam.gpx",
+            "gpx": "Data/gpx/kk_local_buses/4_kk_inanam.gpx",
             "towards": [
                 {
                     "destination": "Inanam",
@@ -30,7 +30,7 @@
             "uid": "002",
             "busName": "4B",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/4_kk_inanam.gpx",
             "towards": [
                 {
                     "destination": "Inanam",
