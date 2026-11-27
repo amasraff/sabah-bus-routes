@@ -2,5 +2,142 @@
     "region": "KK BAS.MY",
     "description": "All routes: daily, 5.30am–11pm, every 15–30 minutes. Will only stop at Bus Stops",
     "map": "",
-    "buses": []
+    "buses": [
+        {
+            "uid": "001",
+            "busName": "S01",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Likas, UMS, 1 Borneo",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Likas, Menara Kinabalu, UMS, 1 Borneo, Luyang, Foh Sang · every 18 min · 5:30am–10:18pm · adult fare up to RM3.90",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "002",
+            "busName": "S02",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "City Mall, UMS, 1 Borneo",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Foh Sang, City Mall, Likas, UMS, 1 Borneo, Old Port · every 18 min · 5:35am–10:23pm · adult fare up to RM4.00",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "003",
+            "busName": "S03",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Inanam, UMS, 1 Borneo",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from Manggatal Terminal via Inanam, KK Sentral, SICC, UMS, 1 Borneo · every 22 min · 5:40am–10:32pm · adult fare up to RM4.50",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "004",
+            "busName": "S04",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Sepanggar, 1 Borneo",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from Manggatal Terminal via Sepanggar, 1 Borneo, Old Port, KK Sentral, Likas, Inanam · every 22 min · 5:40am–10:32pm · adult fare up to RM4.60",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "005",
+            "busName": "S05",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Likas, KPJ, Damai",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Jesselton Point, SICC, Likas, KPJ, Damai, Lido, QE1 · every 15 min · 6:00am–11:00pm · adult fare up to RM2.40",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "006",
+            "busName": "S06",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Sembulan, Luyang, KPJ",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Sembulan, QE1, Sabah Museum, Luyang, KPJ, Damai, Likas · every 15 min · 6:05am–11:05pm · adult fare up to RM2.80",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "007",
+            "busName": "S07",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Airport via Aeropod",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Sutera Avenue, Aeropod, Airport (KKIA), Kepayan, Lido, QE1 · every 15 min · 5:45am–10:45pm · adult fare up to RM2.70",
+            "date_check": "2026-11-27"
+        },
+        {
+            "uid": "008",
+            "busName": "S08",
+            "operator": "Jaguh Bayu",
+            "gpx": "",
+            "towards": [
+                {
+                    "destination": "Airport via Sembulan",
+                    "route": "",
+                    "gpx": "",
+                    "notes": "undef"
+                }
+            ],
+            "colour": "PINK",
+            "remark": "Loop from KK Sentral via Sembulan, Lido, Airport (KKIA), Sutera Harbour, Imago · every 15 min · 5:50am–10:50pm · adult fare up to RM2.70",
+            "date_check": "2026-11-27"
+        }
+    ]
 }
