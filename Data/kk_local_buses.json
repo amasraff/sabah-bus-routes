@@ -7,7 +7,7 @@
             "uid": "001",
             "busName": "4A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/4a_kk_inanam.gpx",
             "towards": [
                 {
                     "destination": "Inanam",
@@ -53,7 +53,7 @@
             "uid": "003",
             "busName": "5A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/5_kk_menggatal.gpx",
             "towards": [
                 {
                     "destination": "Menggatal",
@@ -99,7 +99,7 @@
             "uid": "005",
             "busName": "7C",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/7c_kk_telipok_ria.gpx",
             "towards": [
                 {
                     "destination": "Telipok Ria",
@@ -122,7 +122,7 @@
             "uid": "006",
             "busName": "8A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/8_kk_tuaran.gpx",
             "towards": [
                 {
                     "destination": "Tuaran",
@@ -145,7 +145,7 @@
             "uid": "007",
             "busName": "8B",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/8_kk_tuaran.gpx",
             "towards": [
                 {
                     "destination": "Tuaran",
@@ -168,7 +168,7 @@
             "uid": "008",
             "busName": "10A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/10_kk_tamparuli.gpx",
             "towards": [
                 {
                     "destination": "Tamparuli",
@@ -467,7 +467,7 @@
             "uid": "021",
             "busName": "18A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/18_kk_putatan.gpx",
             "towards": [
                 {
                     "destination": "Putatan",
@@ -490,7 +490,7 @@
             "uid": "022",
             "busName": "18C",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/18_kk_putatan.gpx",
             "towards": [
                 {
                     "destination": "Putatan",
@@ -559,7 +559,7 @@
             "uid": "025",
             "busName": "20A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/20_kk_kinarut.gpx",
             "towards": [
                 {
                     "destination": "Kinarut",
@@ -582,7 +582,7 @@
             "uid": "026",
             "busName": "21A",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/21_kk_papar.gpx",
             "towards": [
                 {
                     "destination": "Papar",
@@ -605,7 +605,7 @@
             "uid": "027",
             "busName": "21B",
             "operator": "",
-            "gpx": "",
+            "gpx": "Data/gpx/kk_local_buses/21_kk_papar.gpx",
             "towards": [
                 {
                     "destination": "Papar",
