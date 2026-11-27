@@ -23,30 +23,20 @@ function readAliases(root) {
   return groups;
 }
 
-// Returns 'spelling' or 'alias' when two names mean the same, otherwise null.
-function sameMeaning(a, b, groups) {
-  const x = norm(a);
-  const y = norm(b);
-  if (x === y) return 'spelling';
-  return groups.some(g => { const n = g.map(norm); return n.includes(x) && n.includes(y); }) ? 'alias' : null;
-}
-
-// Splits new tags into those to add and those already covered. Tags already on the
-// bus are kept; among new ones, the longest name is kept so more words can be searched.
-function skipRepeats(existing, toAdd, groups) {
+// Splits new tags into those to add and repeats that differ only in capitals, spaces or
+// punctuation. Short and full names are both kept, since people may know only one.
+// Tags already on the bus stay; among new repeats, the longest spelling is kept.
+function skipRepeats(existing, toAdd) {
   const kept = [...existing];
   const skipped = new Map();
-  for (const tag of [...toAdd].sort((a, b) => norm(b).length - norm(a).length || b.length - a.length)) {
-    const match = kept.find(k => sameMeaning(tag, k, groups));
+  for (const tag of [...toAdd].sort((a, b) => b.length - a.length)) {
+    const match = kept.find(k => norm(k) === norm(tag));
     if (match === undefined) kept.push(tag);
-    else skipped.set(tag, { match, why: sameMeaning(tag, match, groups) });
+    else skipped.set(tag, match);
   }
   const added = toAdd.filter(t => !skipped.has(t));
-  const notes = toAdd.filter(t => skipped.has(t)).map(t => {
-    const { match, why } = skipped.get(t);
-    const reason = why === 'alias' ? 'paired in the aliases list' : 'same apart from capitals, spaces or punctuation';
-    return `Skipped ${code(t)}: covered by ${code(match)} (${reason}).`;
-  });
+  const notes = toAdd.filter(t => skipped.has(t)).map(t =>
+    `Skipped ${code(t)}: same as ${code(skipped.get(t))} apart from capitals, spaces or punctuation.`);
   return { added, notes };
 }
 
@@ -156,7 +146,7 @@ function updateTags(body, root = '.') {
   const removed = existing.filter(t => toRemove.some(r => key(r) === key(t)));
   const missing = toRemove.filter(r => !existing.some(t => key(r) === key(t)));
   const tags = existing.filter(t => !removed.includes(t));
-  const { added, notes } = skipRepeats(tags, toAdd, toAdd.length ? readAliases(root) : []);
+  const { added, notes } = skipRepeats(tags, toAdd);
   tags.push(...added);
 
   if (missing.length) notes.push(`Not found, so not removed: ${missing.map(code).join(', ')}`);
