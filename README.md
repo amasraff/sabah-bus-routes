@@ -19,8 +19,29 @@ This will consume time and money in order to observe record and memorise the rou
 # License
 This is under personal license
 
+# Acceptable Use
+I prohibit the use of any data found in this repo/site to take advantage, extort, or bring any harm to the well-being of the users as well as the public bus drivers. This small project are meant to help anyone who wanted to commute via public buses.
+
 # Privacy Policy
-I prohibit the use of any data found in this repo/site to take advantage, extort, or bring any harm to the well-being of the users as well as the public bus drivers. This small project are meant to help anyone who wanted to commute via public buses. 
+This site has no user accounts, and the project's own page code does not use analytics or cookies, save data in your browser, or ask for your location.
+
+The site relies on outside services, which receive technical information such as your IP address:
+- GitHub Pages (website hosting)
+- unpkg (loads the Leaflet map library)
+- OpenStreetMap (map images, which also reflect the area you view)
+
+Links to Google Maps and GitHub take you to those services. Their own privacy policies apply. Anything you submit through GitHub issues or pull requests is public.
+
+<!-- Add with the donation link:
+Donations are handled by an outside service. Its own privacy policy applies.
+-->
+
+<!-- Donation section: replace DONATION_LINK, then remove these comment lines.
+# Support
+This guide, including its GPX files, is free to use. If you find the idea helpful, you can optionally support the project and its effort to make local bus routes easier to find. Donations do not pay bus drivers or operators.
+
+[Support this project](DONATION_LINK)
+-->
 
 # FAQ
 
@@ -41,4 +62,6 @@ Inbound and Outbound will have slight deviation to their routes due to how the r
 `partial` means the data gathered for at least multiple times, at least twice, usually the case of their end to end routes.
 
 # Disclaimer
-This repo heavily assisted by AI. Without the help of it, this repo will look very bad and broken
+This project was built with heavy help from AI, including its code and data structure. AI-assisted work may contain mistakes.
+
+Routes are community-maintained and unofficial. A map or GPX line does not confirm that a route is accurate, and some paths may be predicted. Check the route's status and confirm with the driver before boarding.
