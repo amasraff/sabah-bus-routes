@@ -1,0 +1,24 @@
+name: Add Other Spellings (Aliases)
+description: Tell the search that different names mean the same place
+title: "Add Spellings"
+labels: ["aliases"]
+body:
+  - type: markdown
+    attributes:
+      value: "Use this when different names or spellings mean the **same place**, such as a short form and a full name. It affects search across all buses. To add places to a bus, use the tags form instead."
+  - type: input
+    id: place_name
+    attributes:
+      label: Place name
+      description: One name for the place
+      placeholder: "Universiti Malaysia Sabah"
+    validations:
+      required: true
+  - type: textarea
+    id: other_names
+    attributes:
+      label: Other names or spellings
+      description: Separate with commas or new lines
+      placeholder: "UMS"
+    validations:
+      required: true

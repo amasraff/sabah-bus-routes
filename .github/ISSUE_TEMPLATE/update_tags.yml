@@ -37,7 +37,7 @@ body:
     id: tags_add
     attributes:
       label: Tags to add
-      description: Separate with commas or new lines
+      description: "Add the names people might search for, separated by commas or new lines. Repeats we recognise will be skipped."
       placeholder: "Inanam Market, Hospital QE"
   - type: textarea
     id: tags_remove

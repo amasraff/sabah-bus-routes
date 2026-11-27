@@ -13,13 +13,49 @@ class InputError extends Error {}
 const clean = s => String(s).replace(/\s+/g, ' ').trim();
 const key = s => clean(s).toLowerCase();
 const code = s => '`' + String(s).replace(/[`\r\n]/g, ' ') + '`';
+// Compare the way the site search does: ignore case, spaces and punctuation.
+// Names with no a-z or 0-9 characters are compared as typed.
+const norm = s => String(s).toLowerCase().replace(/[^a-z0-9]/g, '') || key(s);
 
-function parseBody(body) {
+function readAliases(root) {
+  const groups = JSON.parse(fs.readFileSync(path.join(root, 'Data/search_aliases.json'), 'utf8'));
+  if (!Array.isArray(groups) || !groups.every(Array.isArray)) throw new Error('Unexpected aliases file format.');
+  return groups;
+}
+
+// Returns 'spelling' or 'alias' when two names mean the same, otherwise null.
+function sameMeaning(a, b, groups) {
+  const x = norm(a);
+  const y = norm(b);
+  if (x === y) return 'spelling';
+  return groups.some(g => { const n = g.map(norm); return n.includes(x) && n.includes(y); }) ? 'alias' : null;
+}
+
+// Splits new tags into those to add and those already covered. Tags already on the
+// bus are kept; among new ones, the longest name is kept so more words can be searched.
+function skipRepeats(existing, toAdd, groups) {
+  const kept = [...existing];
+  const skipped = new Map();
+  for (const tag of [...toAdd].sort((a, b) => norm(b).length - norm(a).length || b.length - a.length)) {
+    const match = kept.find(k => sameMeaning(tag, k, groups));
+    if (match === undefined) kept.push(tag);
+    else skipped.set(tag, { match, why: sameMeaning(tag, match, groups) });
+  }
+  const added = toAdd.filter(t => !skipped.has(t));
+  const notes = toAdd.filter(t => skipped.has(t)).map(t => {
+    const { match, why } = skipped.get(t);
+    const reason = why === 'alias' ? 'paired in the aliases list' : 'same apart from capitals, spaces or punctuation';
+    return `Skipped ${code(t)}: covered by ${code(match)} (${reason}).`;
+  });
+  return { added, notes };
+}
+
+function parseBody(body, headings = HEADINGS) {
   const fields = {};
   let current = null;
   for (const line of String(body || '').split(/\r?\n/)) {
     const heading = line.match(/^### (.+?)\s*$/);
-    if (heading && HEADINGS.includes(heading[1])) {
+    if (heading && headings.includes(heading[1])) {
       current = heading[1];
       if (current in fields) throw new InputError(`The ${current} field appears twice.`);
       fields[current] = [];
@@ -120,12 +156,9 @@ function updateTags(body, root = '.') {
   const removed = existing.filter(t => toRemove.some(r => key(r) === key(t)));
   const missing = toRemove.filter(r => !existing.some(t => key(r) === key(t)));
   const tags = existing.filter(t => !removed.includes(t));
-  const added = toAdd.filter(a => !tags.some(t => key(t) === key(a)));
-  const present = toAdd.filter(a => !added.includes(a));
+  const { added, notes } = skipRepeats(tags, toAdd, toAdd.length ? readAliases(root) : []);
   tags.push(...added);
 
-  const notes = [];
-  if (present.length) notes.push(`Already listed: ${present.map(code).join(', ')}`);
   if (missing.length) notes.push(`Not found, so not removed: ${missing.map(code).join(', ')}`);
   if (!added.length && !removed.length) throw new InputError(['Nothing to change.', ...notes].join('\n'));
   if (added.length && tags.length > MAX_PER_BUS) {
@@ -146,17 +179,20 @@ function updateTags(body, root = '.') {
   return [...summary, ...notes].join('\n');
 }
 
-module.exports = { updateTags, InputError };
-
-if (require.main === module) {
+// Runs an update and saves the outcome for the workflow to report.
+function run(update, failureMessage) {
   let ok = true;
   let message;
   try {
-    message = updateTags(process.env.ISSUE_BODY);
+    message = update(process.env.ISSUE_BODY);
   } catch (error) {
     ok = false;
-    message = error instanceof InputError ? error.message : 'The tag update failed. Check the workflow log.';
+    message = error instanceof InputError ? error.message : failureMessage;
     if (!(error instanceof InputError)) console.error(error);
   }
   fs.writeFileSync(process.env.RESULT_FILE, JSON.stringify({ ok, message }));
 }
+
+module.exports = { updateTags, InputError, parseBody, readAliases, norm, clean, code, run };
+
+if (require.main === module) run(updateTags, 'The tag update failed. Check the workflow log.');
