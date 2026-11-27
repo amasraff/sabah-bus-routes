@@ -1,10 +1,16 @@
 name: Validate JSON and Deploy
 
+# GitHub Pages serves one site, so each deployment packages two branches:
+#   main -> /        (live)
+#   beta -> /beta/   (test copy)
+# Deployments always run from main. A push to beta asks main to redeploy.
+
 on:
   push:
-    branches: [main]
+    branches: [main, beta]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -32,11 +38,27 @@ jobs:
           fi
           echo "All JSON files are valid."
 
+  request-deploy:
+    name: Redeploy after beta push
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.ref == 'refs/heads/beta' && github.event_name == 'push'
+    permissions:
+      actions: write
+    steps:
+      - name: Start deployment from main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"
+
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: validate
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       contents: read
       pages: write
@@ -45,8 +67,60 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
+      - name: Checkout main
         uses: actions/checkout@v5
+        with:
+          ref: main
+          path: main-src
+
+      # A missing or broken beta must never block the live site
+      - name: Checkout beta
+        id: beta
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          ref: beta
+          path: beta-src
+
+      - name: Assemble live site
+        run: |
+          mkdir site
+          tar -C main-src --exclude=.git --exclude=.github -cf - . | tar -C site -xf -
+
+      - name: Add beta copy
+        continue-on-error: true
+        env:
+          BETA_CHECKOUT: ${{ steps.beta.outcome }}
+        run: |
+          if [ "$BETA_CHECKOUT" != "success" ]; then
+            echo "::warning::beta branch not available; deploying live site only"
+            exit 0
+          fi
+          while IFS= read -r -d '' f; do
+            if ! python3 -m json.tool "$f" > /dev/null 2>&1; then
+              echo "::warning::invalid JSON in beta ($f); deploying live site only"
+              exit 0
+            fi
+          done < <(find beta-src -name "*.json" -not -path "beta-src/.git/*" -print0)
+          rm -rf beta-build
+          mkdir beta-build
+          tar -C beta-src --exclude=.git --exclude=.github -cf - . | tar -C beta-build -xf -
+          # Banner and noindex are added here only, so they never reach main by merging
+          SHA="$(git -C beta-src rev-parse --short HEAD)" python3 - <<'PY'
+          import os, re
+          path = 'beta-build/index.html'
+          html = open(path, encoding='utf-8', newline='').read()
+          banner = ('<div role="note" style="flex-shrink:0;padding:4px 12px;text-align:center;'
+                    'font-size:12px;font-weight:700;background:#fde68a;color:#422006">'
+                    'TEST VERSION (beta ' + os.environ['SHA'] + ') · '
+                    '<a href="../" style="color:inherit">Go to live site</a></div>')
+          html, a = re.subn(r'</head>', '<meta name="robots" content="noindex, nofollow">\n</head>', html, count=1)
+          html, b = re.subn(r'<body[^>]*>', lambda m: m.group(0) + '\n' + banner, html, count=1)
+          assert a == 1 and b == 1, 'could not label the beta page'
+          open(path, 'w', encoding='utf-8', newline='').write(html)
+          PY
+          rm -rf site/beta
+          mv beta-build site/beta
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,7 +128,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
