@@ -11,6 +11,8 @@ env:
 
 jobs:
   handle_route:
+    # Tag issues are handled by tag_handler.yml
+    if: contains(github.event.issue.labels.*.name, 'new route') || contains(github.event.issue.labels.*.name, 'modify')
     runs-on: ubuntu-latest
     permissions:
       issues: write

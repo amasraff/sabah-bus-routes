@@ -1,0 +1,46 @@
+name: Edit Places of Interest (Tags)
+description: Add or remove places of interest for a bus route
+title: "Edit Tags"
+labels: ["tags"]
+body:
+  - type: markdown
+    attributes:
+      value: "Places along or near the route. They are shown on the site and used by the search. They do not need to be confirmed bus stops."
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: The tab where the bus is listed on the site
+      options:
+        - KK Local Buses
+        - KK Local Link
+        - KK BAS.MY
+        - Intercity
+    validations:
+      required: true
+  - type: input
+    id: bus_number
+    attributes:
+      label: Bus Number
+      description: As shown on the site e.g. 4A, 13A, S01. Leave blank only if the bus has no number.
+  - type: input
+    id: destination
+    attributes:
+      label: Destination
+      description: Only needed if the bus has no number, or more than one entry has the same number
+  - type: input
+    id: uid
+    attributes:
+      label: UID
+      description: Optional. The ID of the bus entry, if known
+  - type: textarea
+    id: tags_add
+    attributes:
+      label: Tags to add
+      description: Separate with commas or new lines
+      placeholder: "Inanam Market, Hospital QE"
+  - type: textarea
+    id: tags_remove
+    attributes:
+      label: Tags to remove
+      description: Separate with commas or new lines

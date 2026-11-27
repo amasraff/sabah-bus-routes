@@ -1,0 +1,84 @@
+name: Tag Handler
+
+# Runs only when the "approved" label is added to an "Edit Tags" issue.
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  handle_tags:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'tags')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      actions: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Update tags and save
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          RESULT_FILE: ${{ runner.temp }}/result.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Retry from the latest main if something else was pushed meanwhile.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            node .github/scripts/update_tags.js
+            if [ "$(jq -r .ok "$RESULT_FILE")" != "true" ]; then exit 0; fi
+            git add Data/
+            git commit -m "chore: update tags from issue #${ISSUE_NUMBER}"
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          echo "Could not save the change after 3 attempts."
+          exit 1
+
+      # A push made by a workflow does not start other workflows, so start the deploy here.
+      - name: Start deployment
+        id: deploy
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RESULT_FILE: ${{ runner.temp }}/result.json
+        run: |
+          if [ "$(jq -r .ok "$RESULT_FILE")" = "true" ]; then
+            gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"
+          fi
+
+      - name: Reply on the issue
+        if: always()
+        uses: actions/github-script@v8
+        env:
+          RESULT_FILE: ${{ runner.temp }}/result.json
+          SAVE_STATUS: ${{ job.status }}
+          DEPLOY_OUTCOME: ${{ steps.deploy.outcome }}
+        with:
+          script: |
+            const fs = require('fs');
+            let result = { ok: false, message: 'The tag update could not be saved. Check the workflow log.' };
+            if (process.env.SAVE_STATUS === 'success') {
+              result = JSON.parse(fs.readFileSync(process.env.RESULT_FILE, 'utf8'));
+            }
+            const issue = { ...context.repo, issue_number: context.issue.number };
+            let body = `${result.ok ? '✅' : '❌'} ${result.message}`;
+            if (result.ok) {
+              body += process.env.DEPLOY_OUTCOME === 'success'
+                ? '\n\nDeployment has started. The site should update shortly.'
+                : '\n\nSaved, but deployment did not start. Run the deploy workflow on main from the Actions tab.';
+            } else {
+              body += '\n\nTo retry: edit this issue, then remove the `approved` label and add it again.';
+            }
+            await github.rest.issues.createComment({ ...issue, body });
+            if (!result.ok) {
+              await github.rest.issues.addLabels({ ...issue, labels: ['needs-more-info'] });
+            } else if (process.env.DEPLOY_OUTCOME === 'success') {
+              await github.rest.issues.update({ ...issue, state: 'closed' });
+            }
