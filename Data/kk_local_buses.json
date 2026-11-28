@@ -22,6 +22,10 @@
                     "notes": "complete"
                 }
             ],
+            "tags": [
+                "karamunsing",
+                "servay likas"
+            ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
             "date_check": "2025-01-24"
@@ -44,6 +48,10 @@
                     "gpx": "",
                     "notes": "partial"
                 }
+            ],
+            "tags": [
+                "karamunsing",
+                "servay likas"
             ],
             "colour": "BLUE",
             "remark": "May take hours to arrive, alternatively take Menggatal [5A] bus",
