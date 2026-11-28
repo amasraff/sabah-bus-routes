@@ -19,20 +19,13 @@ body:
     validations:
       required: true
   - type: input
-    id: bus_number
-    attributes:
-      label: Bus Number
-      description: As shown on the site e.g. 4A, 13A, S01. Leave blank only if the bus has no number.
-  - type: input
-    id: destination
-    attributes:
-      label: Destination
-      description: Only needed if the bus has no number, or more than one entry has the same number
-  - type: input
     id: uid
     attributes:
       label: UID
-      description: Optional. The ID of the bus entry, if known
+      description: "Shown on each bus card on the site. For several buses in the same category, separate UIDs with commas. The same tag changes apply to all of them."
+      placeholder: "005, 006, 007"
+    validations:
+      required: true
   - type: textarea
     id: tags_add
     attributes:

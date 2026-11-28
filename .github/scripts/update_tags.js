@@ -6,7 +6,8 @@ const MIN_LENGTH = 2;
 const MAX_LENGTH = 60;
 const MAX_PER_REQUEST = 20;
 const MAX_PER_BUS = 40;
-const HEADINGS = ['Category', 'Bus Number', 'Destination', 'UID', 'Tags to add', 'Tags to remove'];
+const MAX_BUSES = 20;
+const HEADINGS = ['Category', 'UID', 'Tags to add', 'Tags to remove'];
 
 class InputError extends Error {}
 
@@ -35,8 +36,9 @@ function skipRepeats(existing, toAdd) {
     else skipped.set(tag, match);
   }
   const added = toAdd.filter(t => !skipped.has(t));
-  const notes = toAdd.filter(t => skipped.has(t)).map(t =>
-    `Skipped ${code(t)}: same as ${code(skipped.get(t))} apart from capitals, spaces or punctuation.`);
+  const notes = toAdd.filter(t => skipped.has(t)).map(t => key(t) === key(skipped.get(t))
+    ? `Already listed: ${code(t)}`
+    : `Skipped ${code(t)}: same as ${code(skipped.get(t))} apart from capitals, spaces or punctuation.`);
   return { added, notes };
 }
 
@@ -81,28 +83,25 @@ function checkNewTag(tag) {
 
 const destinationsOf = bus => (bus.towards || []).flatMap(t => [].concat(t.destination || []));
 
-function describe(bus) {
-  return `- UID ${code(bus.uid)}: ${bus.busName || '(no number)'}, ${bus.operator || 'no operator'}, ${destinationsOf(bus).join(' / ')}`;
-}
+const label = bus => `UID ${code(bus.uid)} (${[bus.busName, destinationsOf(bus).join(' / ')].filter(Boolean).join(', ')})`;
 
-function findBus(buses, { busNumber, destination, uid }) {
-  if (!uid && !busNumber && !destination) {
-    throw new InputError('Please give a Bus Number. If the bus has no number, give a Destination or UID.');
+// Reads one or more UIDs, such as "005, 6 007", and finds each bus in the category.
+function findBuses(buses, raw) {
+  const wanted = [...new Set(String(raw || '').split(/[,\s]+/).filter(Boolean)
+    .map(u => /^\d+$/.test(u) ? u.padStart(3, '0') : u))];
+  if (!wanted.length) throw new InputError('Please give at least one UID. It is shown on each bus card on the site.');
+  if (wanted.length > MAX_BUSES) throw new InputError(`Too many UIDs. The limit is ${MAX_BUSES} per request.`);
+
+  const found = wanted.map(uid => ({ uid, matches: buses.filter(b => b.uid === uid) }));
+  const unknown = found.filter(f => !f.matches.length).map(f => code(f.uid));
+  if (unknown.length) {
+    throw new InputError(`No bus in this category has UID ${unknown.join(', ')}. Check the category and UIDs. Nothing was saved.`);
   }
-  let matches = buses;
-  if (uid) {
-    const wanted = /^\d+$/.test(uid) ? uid.padStart(3, '0') : uid;
-    matches = matches.filter(b => b.uid === wanted);
+  const repeated = found.filter(f => f.matches.length > 1).map(f => code(f.uid));
+  if (repeated.length) {
+    throw new InputError(`More than one entry in this category has UID ${repeated.join(', ')}. The owner needs to fix the data. Nothing was saved.`);
   }
-  if (busNumber) matches = matches.filter(b => key(b.busName || '') === key(busNumber));
-  if (destination) matches = matches.filter(b => destinationsOf(b).some(d => key(d) === key(destination)));
-  if (!matches.length) {
-    throw new InputError('No bus matches those details in this category. Check the category, number, destination and UID.');
-  }
-  if (matches.length > 1) {
-    throw new InputError(`More than one entry matches. Add the Destination or UID.\n\n${matches.map(describe).join('\n')}`);
-  }
-  return matches[0];
+  return found.map(f => f.matches[0]);
 }
 
 // Puts a new "tags" field right after "towards", as in the template.
@@ -136,26 +135,33 @@ function updateTags(body, root = '.') {
   const filePath = path.join(root, category.fileName);
   const text = fs.readFileSync(filePath, 'utf8');
   const data = JSON.parse(text);
-  const bus = findBus(data.buses, {
-    busNumber: clean(fields['Bus Number'] || ''),
-    destination: clean(fields['Destination'] || ''),
-    uid: clean(fields['UID'] || ''),
+
+  // Work out every bus before saving, so one problem means nothing is saved.
+  let changed = 0;
+  const reports = findBuses(data.buses, fields['UID']).map(bus => {
+    const existing = Array.isArray(bus.tags) ? bus.tags : [];
+    const removed = existing.filter(t => toRemove.some(r => key(r) === key(t)));
+    const missing = toRemove.filter(r => !existing.some(t => key(r) === key(t)));
+    const tags = existing.filter(t => !removed.includes(t));
+    const { added, notes } = skipRepeats(tags, toAdd);
+    tags.push(...added);
+    if (added.length && tags.length > MAX_PER_BUS) {
+      throw new InputError(`${label(bus)} would have ${tags.length} tags. The limit is ${MAX_PER_BUS}. Nothing was saved.`);
+    }
+
+    const lines = [`**${label(bus)}**`];
+    if (added.length) lines.push(`Added: ${added.map(code).join(', ')}`);
+    if (removed.length) lines.push(`Removed: ${removed.map(code).join(', ')}`);
+    if (missing.length) notes.push(`Not found, so not removed: ${missing.map(code).join(', ')}`);
+    if (added.length || removed.length) {
+      changed++;
+      data.buses[data.buses.indexOf(bus)] = setTags(bus, tags);
+    } else {
+      lines.push('No change.');
+    }
+    return [...lines, ...notes].join('\n');
   });
-
-  const existing = Array.isArray(bus.tags) ? bus.tags : [];
-  const removed = existing.filter(t => toRemove.some(r => key(r) === key(t)));
-  const missing = toRemove.filter(r => !existing.some(t => key(r) === key(t)));
-  const tags = existing.filter(t => !removed.includes(t));
-  const { added, notes } = skipRepeats(tags, toAdd);
-  tags.push(...added);
-
-  if (missing.length) notes.push(`Not found, so not removed: ${missing.map(code).join(', ')}`);
-  if (!added.length && !removed.length) throw new InputError(['Nothing to change.', ...notes].join('\n'));
-  if (added.length && tags.length > MAX_PER_BUS) {
-    throw new InputError(`This would give the bus ${tags.length} tags. The limit is ${MAX_PER_BUS}.`);
-  }
-
-  data.buses[data.buses.indexOf(bus)] = setTags(bus, tags);
+  if (!changed) throw new InputError(['Nothing to change.', ...reports].join('\n\n'));
 
   // Keep the file's line endings and final newline so only real changes show.
   const eol = text.includes('\r\n') ? '\r\n' : '\n';
@@ -163,10 +169,8 @@ function updateTags(body, root = '.') {
   if (text.endsWith('\n')) output += eol;
   fs.writeFileSync(filePath, output);
 
-  const summary = [`Tags updated for ${code(bus.busName || 'UID ' + bus.uid)} in ${category.label}.`];
-  if (added.length) summary.push(`Added: ${added.map(code).join(', ')}`);
-  if (removed.length) summary.push(`Removed: ${removed.map(code).join(', ')}`);
-  return [...summary, ...notes].join('\n');
+  const heading = `Tags updated for ${changed} ${changed === 1 ? 'bus' : 'buses'} in ${category.label}.`;
+  return [heading, ...reports].join('\n\n');
 }
 
 // Runs an update and saves the outcome for the workflow to report.
